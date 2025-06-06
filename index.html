@@ -31,28 +31,14 @@
       transform: none;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    });
-  </script>
 </head>
 <body class="bg-black text-white">
-  <header class="text-center p-8 fade-in">
+  <header class="text-center p-8">
     <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
     <p class="mt-2">Bogotá, Colombia | +57 322 618 3938 | <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a></p>
     <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
-      <a href="cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md">
-        📄 CV (PDF)
+      <a href="cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md animate-bounce">
+        📄 Descargar CV
       </a>
       <a href="https://github.com/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg">
         🐱 GitHub
@@ -141,5 +127,21 @@
       "Comprometido con soluciones técnicas que generen impacto real."</p>
     </section>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
+
