@@ -3,205 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrés Suárez Moreno | Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Portafolio - Andrés Suárez</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0e0e0e;
-      color: #f0f0f0;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
     }
-    nav {
-      position: sticky;
-      top: 0;
-      background: #0e0e0e;
-      padding: 1rem 2rem;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid #1f1f1f;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #82d4f9;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ffffff;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      border: 3px solid #2e2e2e;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #aaa;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 960px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.reveal {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #2e2e2e;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-    }
-    .project {
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-top: 1.5rem;
-    }
-    .project a {
-      color: #82d4f9;
-    }
-    .stack ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    footer {
-      background: #111;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
+    h1, h2, h3 {
+      text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
     }
     a {
-      color: #82d4f9;
+      color: #0ff;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    section {
+      border-bottom: 1px solid #0ff;
     }
   </style>
 </head>
-<body>
-  <nav>
-    <a href="#about">Sobre mí</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#stack">Stack</a>
-    <a href="#contact">Contacto</a>
-  </nav>
-
-  <header>
-    <img src="avatar-andres.png" alt="Avatar de Andrés Suárez Moreno">
-    <h1 id="title">Andrés Suárez Moreno</h1>
-    <p id="subtitle">Full Stack Developer & UX/UI Designer</p>
+<body class="bg-black text-white">
+  <header class="text-center p-8">
+    <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
+    <p class="mt-2">Bogotá, Colombia | +57 322 618 3938 | <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a></p>
+    <div class="mt-4 space-x-4">
+      <a href="/cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-4 rounded shadow">
+        Descargar Hoja de Vida (PDF)
+      </a>
+      <a href="https://github.com/andres1997rez" target="_blank" class="text-cyan-400 hover:underline">GitHub</a>
+      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline">LinkedIn</a>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy un desarrollador Full Stack con enfoque en diseño UX/UI. Me encanta construir experiencias digitales que funcionan con elegancia. Diseño con intención y desarrollo con precisión.
-    </p>
-  </section>
+  <main class="max-w-4xl mx-auto px-4 space-y-10">
+    <section>
+      <h2 class="text-2xl font-semibold">Perfil Profesional</h2>
+      <p class="mt-2">
+        Desarrollador Full-Stack con más de 3 años de experiencia construyendo aplicaciones web escalables. Especializado en integración de APIs y optimización de rendimiento, combinando frontend (UI/UX) y backend para entregar soluciones técnicas robustas.
+      </p>
+    </section>
 
-  <section id="projects">
-    <h2>Proyectos</h2>
-    <div class="project">
-      <h3>API de Clima</h3>
-      <p>API construida con Python y Flask que muestra el clima actual, la temperatura y el estado del tiempo en cualquier ciudad del mundo.</p>
-      <p><a href="https://github.com/andrezoficial/portafolio" target="_blank">Ver en GitHub</a></p>
-    </div>
-  </section>
+    <section>
+      <h2 class="text-2xl font-semibold">Experiencia Laboral</h2>
+      <div class="mt-2">
+        <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
+        <ul class="list-disc ml-6">
+          <li>Diseñé e implementé APIs REST con Stripe, PayPal, Addi, Sistecredito.</li>
+          <li>Desarrollé plataformas de e-commerce con login y carrito de compras.</li>
+          <li>Optimicé carga de sitios web reduciendo 1.5s con caching y CDN.</li>
+        </ul>
+      </div>
+      <div class="mt-4">
+        <h3 class="text-xl font-bold">Acoustic System SAS (2021–2023)</h3>
+        <ul class="list-disc ml-6">
+          <li>Desarrollo de HCE en Laravel, integrando FHIR/HL7 con laboratorios.</li>
+          <li>Implementación de notificaciones automáticas por correo.</li>
+        </ul>
+      </div>
+      <div class="mt-4">
+        <h3 class="text-xl font-bold">Fumisuar SAS (2019–2020)</h3>
+        <ul class="list-disc ml-6">
+          <li>Maquetación responsiva con Bootstrap.</li>
+          <li>Animaciones interactivas con JavaScript.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="stack" class="stack">
-    <h2>Stack Tecnológico</h2>
-    <ul>
-      <li>HTML / CSS / JavaScript</li>
-      <li>React.js</li>
-      <li>Python / Flask</li>
-      <li>Node.js / Express</li>
-      <li>UX/UI con Figma</li>
-      <li>MongoDB / REST APIs</li>
-    </ul>
-  </section>
+    <section>
+      <h2 class="text-2xl font-semibold">Habilidades Técnicas</h2>
+      <ul class="list-disc ml-6 mt-2">
+        <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
+        <li><strong>Frameworks/Librerías:</strong> Laravel, Django, Flask, Node.js, jQuery, Bootstrap</li>
+        <li><strong>Herramientas:</strong> Git, Docker, Postman, MongoDB Atlas</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contacto</h2>
-    <p>¿Tienes una idea o proyecto? Escríbeme:</p>
-    <p>Email: <a href="mailto:andres@example.com">andres@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/andrezoficial" target="_blank">@andrezoficial</a></p>
-  </section>
+    <section>
+      <h2 class="text-2xl font-semibold">Educación</h2>
+      <ul class="list-disc ml-6 mt-2">
+        <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
+        <li>Tecnología en Topografía – Universidad Distrital F.J.C. (2020)</li>
+      </ul>
+    </section>
 
-  <footer>
-    © 2025 Andrés Suárez Moreno · Portafolio personal
-  </footer>
+    <section>
+      <h2 class="text-2xl font-semibold">Certificaciones</h2>
+      <ul class="list-disc ml-6 mt-2">
+        <li>Python con Django Master – Udemy (2023)</li>
+        <li>JavaScript Moderno – Udemy (2023)</li>
+        <li>SQL Profesional – Udemy (2023)</li>
+      </ul>
+    </section>
 
-  <script>
-    // Animación de aparición al hacer scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    <section>
+      <h2 class="text-2xl font-semibold">Proyectos Destacados</h2>
+      <div class="mt-2">
+        <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
+        <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
+      </div>
+      <div class="mt-4">
+        <h3 class="text-xl font-bold">API de Clima en Tiempo Real</h3>
+        <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
+      </div>
+    </section>
 
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Animación del título en header al cargar
-    window.addEventListener('load', () => {
-      document.getElementById('title').style.opacity = '1';
-      document.getElementById('title').style.transform = 'translateY(0)';
-      document.getElementById('subtitle').style.opacity = '1';
-      document.getElementById('subtitle').style.transform = 'translateY(0)';
-    });
-  </script>
+    <section>
+      <h2 class="text-2xl font-semibold">Contacto</h2>
+      <p class="mt-2">Estoy disponible para nuevos desafíos.<br />
+      "Comprometido con soluciones técnicas que generen impacto real."</p>
+    </section>
+  </main>
 </body>
 </html>
