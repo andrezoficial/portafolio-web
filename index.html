@@ -7,7 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #000;
+      background: url('fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
     }
@@ -33,142 +34,108 @@
   </style>
 </head>
 <body class="bg-black text-white">
- <header class="text-center p-8">
-  <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
-  <p class="mt-2 flex justify-center items-center gap-2 flex-wrap text-white">
-    Bogotá, Colombia | 
-    <a href="https://wa.me/573226183938" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-cyan-400 hover:underline">
-      <!-- Ícono WhatsApp SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="#25D366" viewBox="0 0 24 24" class="w-5 h-5">
-        <path d="M20.52 3.48A11.913 11.913 0 0012 0C5.373 0 0 5.372 0 12a11.952 11.952 0 001.662 6.029L0 24l5.945-1.563a11.945 11.945 0 006.055 1.563c6.627 0 12-5.373 12-12 0-3.193-1.245-6.189-3.48-8.469zM12 21.82a9.807 9.807 0 01-5.003-1.373l-.358-.214-3.525.927.942-3.436-.232-.356A9.795 9.795 0 012.2 12c0-5.421 4.41-9.83 9.8-9.83 2.62 0 5.086 1.022 6.936 2.872 1.85 1.848 2.87 4.31 2.87 6.932 0 5.421-4.41 9.83-9.8 9.83z"/>
-        <path d="M17.544 14.371c-.297-.149-1.758-.868-2.031-.967-.273-.1-.472-.149-.671.15-.198.298-.767.966-.941 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.474-.883-.788-1.48-1.761-1.653-2.06-.173-.298-.018-.459.13-.608.134-.133.298-.347.447-.52.149-.173.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.67-1.613-.918-2.207-.242-.579-.487-.5-.671-.51l-.571-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.26.489 1.691.625.71.227 1.355.195 1.865.118.569-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      </svg>
-      <span>+57 322 618 3938</span>
-    </a>
-    | 
-    <a href="mailto:andres1997rez@gmail.com" class="inline-block text-cyan-400 hover:underline">andres1997rez@gmail.com</a>
-  </p>
-  <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
-    <a href="cv-andres-suarezz.pdf" download 
-       class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md animate-bounce flex items-center gap-3">
-      <!-- Ícono documento SVG simplificado -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V7l-5-5H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h6v4H7V7z" />
-      </svg>
-      <div class="flex flex-col leading-tight">
-        <span>Descargar CV</span>
-        <span class="text-white text-sm -mt-1">Ver más CV</span>
-      </div>
-    </a>
+  <header class="text-center p-8">
+    <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
+    <p class="mt-2">
+      Bogotá, Colombia |
+      <a href="https://wa.me/573226183938" target="_blank" class="hover:underline">🗭 +57 322 618 3938</a> |
+      <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a>
+    </p>
+    <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
+      <a href="cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md">
+        Ver más CV
+      </a>
+      <a href="https://github.com/andrezoficial" target="_blank" class="text-cyan-400 hover:underline text-lg">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="inline h-5 w-5 mr-1" alt="GitHub" /> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="inline h-5 w-5 mr-1" alt="LinkedIn" /> LinkedIn
+      </a>
+    </div>
+  </header>
 
-    <a href="https://github.com/andrezoficial" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline flex items-center gap-1 text-lg">
-      <!-- Logo GitHub SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-        <path d="M12 0.297C5.37 0.297 0 5.664 0 12.297c0 5.302 3.438 9.8 8.207 11.387.6.113.82-.263.82-.582 0-.287-.01-1.044-.015-2.05-3.338.725-4.042-1.61-4.042-1.61-.546-1.388-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.204.084 1.838 1.236 1.838 1.236 1.07 1.832 2.807 1.302 3.492.996.108-.776.42-1.302.763-1.602-2.665-.304-5.467-1.333-5.467-5.933 0-1.31.47-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.323 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.653.244 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.625-5.48 5.922.43.37.815 1.102.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.7.825.58C20.565 22.092 24 17.59 24 12.297c0-6.633-5.373-12-12-12"/>
-      </svg>
-      GitHub
-    </a>
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-6 space-y-10">
 
-    <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline flex items-center gap-1 text-lg">
-      <!-- Logo LinkedIn SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.135 1.445-2.135 2.939v5.667H9.353V9h3.415v1.561h.047c.476-.9 1.637-1.852 3.368-1.852 3.6 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433c-1.144 0-2.068-.927-2.068-2.067 0-1.143.924-2.07 2.068-2.07 1.143 0 2.067.927 2.067 2.07 0 1.14-.924 2.067-2.067 2.067zM6.776 20.452H3.897V9h2.879v11.452zM22.225 0H1.771C.792 0 0 .77 0 1.722v20.555C0 23.227.792 24 1.771 24h20.451c.978 0 1.778-.773 1.778-1.723V1.722c0-.952-.8-1.722-1.779-1.722z"/>
-      </svg>
-      LinkedIn
-    </a>
-  </div>
-</header>
-</header>
-<div class="w-full max-w-6xl mx-auto px-4 my-8">
-  <img 
-    src="portada.png" 
-    alt="Portada de Andrés Suárez" 
-    class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
-  />
-</div>
-<main class="max-w-4xl mx-auto px-4 py-8">
-  <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-6 space-y-10">
-    
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Perfil Profesional</h2>
-      <p class="mt-2">
-        Desarrollador Full-Stack con más de 3 años de experiencia construyendo aplicaciones web escalables. Especializado en integración de APIs y optimización de rendimiento, combinando frontend (UI/UX) y backend para entregar soluciones técnicas robustas.
-      </p>
-    </section>
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Perfil Profesional</h2>
+        <p class="mt-2">
+          Desarrollador Full-Stack con más de 3 años de experiencia construyendo aplicaciones web escalables. Especializado en integración de APIs y optimización de rendimiento, combinando frontend (UI/UX) y backend para entregar soluciones técnicas robustas.
+        </p>
+      </section>
 
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Experiencia Laboral</h2>
-      <div class="mt-2">
-        <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
-        <ul class="list-disc ml-6">
-          <li>Diseñé e implementé APIs REST con Stripe, PayPal, Addi, Sistecredito.</li>
-          <li>Desarrollé plataformas de e-commerce con login y carrito de compras.</li>
-          <li>Optimicé carga de sitios web reduciendo 1.5s con caching y CDN.</li>
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Experiencia Laboral</h2>
+        <div class="mt-2">
+          <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
+          <ul class="list-disc ml-6">
+            <li>Diseñé e implementé APIs REST con Stripe, PayPal, Addi, Sistecredito.</li>
+            <li>Desarrollé plataformas de e-commerce con login y carrito de compras.</li>
+            <li>Optimicé carga de sitios web reduciendo 1.5s con caching y CDN.</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">Acoustic System SAS (2021–2023)</h3>
+          <ul class="list-disc ml-6">
+            <li>Desarrollo de HCE en Laravel, integrando FHIR/HL7 con laboratorios.</li>
+            <li>Implementación de notificaciones automáticas por correo.</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">Fumisuar SAS (2019–2020)</h3>
+          <ul class="list-disc ml-6">
+            <li>Maquetación responsiva con Bootstrap.</li>
+            <li>Animaciones interactivas con JavaScript.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Habilidades Técnicas</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
+          <li><strong>Frameworks/Librerías:</strong> Laravel, Django, Flask, Node.js, jQuery, Bootstrap</li>
+          <li><strong>Herramientas:</strong> Git, Docker, Postman, MongoDB Atlas</li>
         </ul>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">Acoustic System SAS (2021–2023)</h3>
-        <ul class="list-disc ml-6">
-          <li>Desarrollo de HCE en Laravel, integrando FHIR/HL7 con laboratorios.</li>
-          <li>Implementación de notificaciones automáticas por correo.</li>
+      </section>
+
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Educación</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
+          <li>Tecnología en Topografía – Universidad Distrital F.J.C. (2020)</li>
         </ul>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">Fumisuar SAS (2019–2020)</h3>
-        <ul class="list-disc ml-6">
-          <li>Maquetación responsiva con Bootstrap.</li>
-          <li>Animaciones interactivas con JavaScript.</li>
+      </section>
+
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Certificaciones</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Python con Django Master – Udemy (2023)</li>
+          <li>JavaScript Moderno – Udemy (2023)</li>
+          <li>SQL Profesional – Udemy (2023)</li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Habilidades Técnicas</h2>
-      <ul class="list-disc ml-6 mt-2">
-        <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
-        <li><strong>Frameworks/Librerías:</strong> Laravel, Django, Flask, Node.js, jQuery, Bootstrap</li>
-        <li><strong>Herramientas:</strong> Git, Docker, Postman, MongoDB Atlas</li>
-      </ul>
-    </section>
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Proyectos Destacados</h2>
+        <div class="mt-2">
+          <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
+          <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">API de Clima en Tiempo Real</h3>
+          <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
+        </div>
+      </section>
 
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Educación</h2>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
-        <li>Tecnología en Topografía – Universidad Distrital F.J.C. (2020)</li>
-      </ul>
-    </section>
+      <section class="fade-in">
+        <h2 class="text-2xl font-semibold">Contacto</h2>
+        <p class="mt-2">Estoy disponible para nuevos desafíos.<br />
+        "Comprometido con soluciones técnicas que generen impacto real."</p>
+      </section>
 
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Certificaciones</h2>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Python con Django Master – Udemy (2023)</li>
-        <li>JavaScript Moderno – Udemy (2023)</li>
-        <li>SQL Profesional – Udemy (2023)</li>
-      </ul>
-    </section>
-
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Proyectos Destacados</h2>
-      <div class="mt-2">
-        <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
-        <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">API de Clima en Tiempo Real</h3>
-        <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
-      </div>
-    </section>
-
-    <section class="fade-in">
-      <h2 class="text-2xl font-semibold">Contacto</h2>
-      <p class="mt-2">Estoy disponible para nuevos desafíos.<br />
-      "Comprometido con soluciones técnicas que generen impacto real."</p>
-    </section>
-
-  </div>
-</main>
+    </div>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -186,4 +153,3 @@
   </script>
 </body>
 </html>
-
