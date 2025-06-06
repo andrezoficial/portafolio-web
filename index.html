@@ -21,30 +21,57 @@
     section {
       border-bottom: 1px solid #0ff;
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
 </head>
 <body class="bg-black text-white">
-  <header class="text-center p-8">
+  <header class="text-center p-8 fade-in">
     <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
     <p class="mt-2">Bogotá, Colombia | +57 322 618 3938 | <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a></p>
-    <div class="mt-4 space-x-4">
-      <a href="/cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-4 rounded shadow">
-        Descargar Hoja de Vida (PDF)
+    <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
+      <a href="cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md">
+        📄 CV (PDF)
       </a>
-      <a href="https://github.com/andres1997rez" target="_blank" class="text-cyan-400 hover:underline">GitHub</a>
-      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline">LinkedIn</a>
+      <a href="https://github.com/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg">
+        🐱 GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg">
+        🔗 LinkedIn
+      </a>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 space-y-10">
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Perfil Profesional</h2>
       <p class="mt-2">
         Desarrollador Full-Stack con más de 3 años de experiencia construyendo aplicaciones web escalables. Especializado en integración de APIs y optimización de rendimiento, combinando frontend (UI/UX) y backend para entregar soluciones técnicas robustas.
       </p>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Experiencia Laboral</h2>
       <div class="mt-2">
         <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
@@ -70,7 +97,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Habilidades Técnicas</h2>
       <ul class="list-disc ml-6 mt-2">
         <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
@@ -79,7 +106,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Educación</h2>
       <ul class="list-disc ml-6 mt-2">
         <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
@@ -87,7 +114,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Certificaciones</h2>
       <ul class="list-disc ml-6 mt-2">
         <li>Python con Django Master – Udemy (2023)</li>
@@ -96,7 +123,7 @@
       </ul>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Proyectos Destacados</h2>
       <div class="mt-2">
         <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
@@ -108,7 +135,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="text-2xl font-semibold">Contacto</h2>
       <p class="mt-2">Estoy disponible para nuevos desafíos.<br />
       "Comprometido con soluciones técnicas que generen impacto real."</p>
