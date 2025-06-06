@@ -16,6 +16,10 @@
       background-size: cover;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     h1, h2, h3 {
       text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
@@ -48,28 +52,26 @@
     <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
     <p class="mt-2">
       Bogotá, Colombia |
-      <a href="https://wa.me/573226183938" target="_blank" class="hover:underline" aria-label="Enviar mensaje por WhatsApp">
+      <a href="https://wa.me/573226183938" target="_blank" class="hover:underline">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="inline h-5 w-5 mr-1" style="filter: invert(1);" /> +57 322 618 3938
       </a> |
-      <a href="mailto:andres1997rez@gmail.com" aria-label="Enviar correo electrónico">andres1997rez@gmail.com</a>
+      <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a>
     </p>
     <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
-      <a href="cv-andres-suarezz.pdf" download
-         class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-cyan-300 transition"
-         aria-label="Descargar CV de Andrés Suárez Moreno">
-         Ver más CV
+      <a href="cv-andres-suarezz.pdf" download class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-2 px-6 rounded-full shadow-md">
+        Ver más CV
       </a>
-      <a href="https://github.com/andrezoficial" target="_blank" class="text-cyan-400 hover:underline text-lg" aria-label="Visitar GitHub de Andrés Suárez">
+      <a href="https://github.com/andrezoficial" target="_blank" class="text-cyan-400 hover:underline text-lg">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="inline h-5 w-5 mr-1" alt="GitHub" /> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg" aria-label="Visitar LinkedIn de Andrés Suárez">
+      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="inline h-5 w-5 mr-1" alt="LinkedIn" /> LinkedIn
       </a>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8" role="main">
-    <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-6 space-y-10">
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-grow" role="main">
+    <div class="bg-black rounded-2xl p-6 space-y-10">
       <section class="fade-in" aria-labelledby="perfil">
         <h2 id="perfil" class="text-2xl font-semibold">Perfil Profesional</h2>
         <p class="mt-2">
@@ -144,10 +146,10 @@
       <section class="fade-in" aria-labelledby="contacto">
         <h2 id="contacto" class="text-2xl font-semibold">Contacto</h2>
         <p class="mt-2">Estoy disponible para nuevos desafíos.<br />
-        "Comprometido con soluciones técnicas que generen impacto real."</p
-
+        "Comprometido con soluciones técnicas que generen impacto real."</p>
+      </section>
+    </div>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries
