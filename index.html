@@ -160,13 +160,16 @@
   </style>
 </head>
 <body>
-  <!-- Intro Overlay -->
-  <div id="intro-overlay">
-    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#0ff" stroke-width="2" aria-hidden="true">
-      <polygon points="100,10 40,198 190,78 10,78 160,198"></polygon>
-    </svg>
-    <h1>Andrés Suárez Moreno</h1>
-  </div>
+<!-- Intro Overlay -->
+<div id="intro-overlay" aria-label="Animación de introducción con símbolo de programación web" role="img">
+  <svg width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#0ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" >
+    <!-- Símbolo < -->
+    <path d="M 80 50 L 40 100 L 80 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards;"></path>
+    <!-- Símbolo /> -->
+    <path d="M 120 50 L 160 100 L 120 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards 0.3s;"></path>
+  </svg>
+  <h1>Andrés Suárez Moreno</h1>
+</div>
 
   <header>
     <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
