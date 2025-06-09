@@ -12,6 +12,47 @@
   <link rel="alternate" hreflang="en" href="https://andrezoficial.github.io/portafolio-web/en/" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
+    /* Animaciones intro */
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fadeInText {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Estilos para la intro */
+    #intro-overlay {
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+      color: #0ff;
+    }
+
+    #intro-overlay svg polygon {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: draw 3s forwards;
+    }
+
+    #intro-overlay h1 {
+      margin-top: 20px;
+      font-family: monospace;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeInText 2s 3s forwards;
+    }
+
+    /* Estilos base de tu página */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -119,6 +160,14 @@
   </style>
 </head>
 <body>
+  <!-- Intro Overlay -->
+  <div id="intro-overlay">
+    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#0ff" stroke-width="2" aria-hidden="true">
+      <polygon points="100,10 40,198 190,78 10,78 160,198"></polygon>
+    </svg>
+    <h1>Andrés Suárez Moreno</h1>
+  </div>
+
   <header>
     <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
     <p class="mt-2">
@@ -176,39 +225,39 @@
         </div>
       </section>
 
-<section class="fade-in" aria-labelledby="habilidades">
-  <h2 id="habilidades" class="text-2xl font-semibold">Habilidades Técnicas</h2>
-  <ul class="list-disc ml-6 mt-2">
-    <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
-    <li><strong>Frameworks/Librerías:</strong> 
- <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="inline h-5 w-5 mr-1" />
+      <section class="fade-in" aria-labelledby="habilidades">
+        <h2 id="habilidades" class="text-2xl font-semibold">Habilidades Técnicas</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
+          <li><strong>Frameworks/Librerías:</strong> 
+            <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="inline h-5 w-5 mr-1" />
+            Laravel, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="inline h-5 w-5 mr-1" />
+            Django, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Flask" class="inline h-5 w-5 mr-1" />
+            Flask, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="inline h-5 w-5 mr-1" />
+            Node.js, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" class="inline h-5 w-5 mr-1" />
+            jQuery, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap" class="inline h-5 w-5 mr-1" />
+            Bootstrap, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="inline h-5 w-5 mr-1" />
+            React
+          </li>
+          <li><strong>Herramientas:</strong> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="inline h-5 w-5 mr-1" />
+            Git, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker" class="inline h-5 w-5 mr-1" />
+            Docker, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="inline h-5 w-5 mr-1" />
+            Postman, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="inline h-5 w-5 mr-1" />
+            MongoDB Atlas
+          </li>
+        </ul>
+      </section>
 
-  Laravel, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="inline h-5 w-5 mr-1" />
-  Django, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Flask" class="inline h-5 w-5 mr-1" />
-  Flask, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="inline h-5 w-5 mr-1" />
-  Node.js, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" class="inline h-5 w-5 mr-1" />
-  jQuery, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap" class="inline h-5 w-5 mr-1" />
-  Bootstrap, 
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="inline h-5 w-5 mr-1" />
-  React
-</li>
-    <li><strong>Herramientas:</strong> 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="inline h-5 w-5 mr-1" />
-      Git, 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker" class="inline h-5 w-5 mr-1" />
-      Docker, 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="inline h-5 w-5 mr-1" />
-      Postman, 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="inline h-5 w-5 mr-1" />
-      MongoDB Atlas
-    </li>
-  </ul>
-</section>
       <section class="fade-in" aria-labelledby="educacion">
         <h2 id="educacion" class="text-2xl font-semibold">Educación</h2>
         <ul class="list-disc ml-6 mt-2">
@@ -222,54 +271,53 @@
         <ul class="list-disc ml-6 mt-2">
           <li>Python con Django Master – Udemy (2023)</li>
           <li>JavaScript Moderno – Udemy (2023)</li>
-          <li>SQL Profesional – Udemy (2023)</li>
+          <li>Desarrollo web con Laravel 8 – Udemy (2022)</li>
         </ul>
-      </section>
-
-      <section class="fade-in" aria-labelledby="proyectos">
-        <h2 id="proyectos" class="text-2xl font-semibold">Proyectos Destacados</h2>
-        <div class="mt-2">
-          <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
-          <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
-        </div>
-       <div class="mt-4">
-  <h3 class="text-xl font-bold">
-    <a href="https://andrezoficial.github.io/clima/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
-      API de Clima en Tiempo Real
-    </a>
-  </h3>
-  <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
-</div>
-      </section>
-
-      <section class="fade-in" aria-labelledby="contacto">
-        <h2 id="contacto" class="text-2xl font-semibold">Contacto</h2>
-        <p class="mt-2">
-          Estoy disponible para nuevos desafíos.<br />
-          "Comprometido con soluciones técnicas que generen impacto real."
-        </p>
       </section>
     </div>
   </main>
 
- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+  <footer class="text-center p-6 mt-auto bg-black bg-opacity-70">
+    <p>
+      &copy; 2024 Andrés Suárez Moreno. Código disponible en 
+      <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">GitHub</a>.
+    </p>
+  </footer>
 
-      document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
+  <script>
+    // Esperar 5 segundos para ocultar el overlay y mostrar el contenido
+    setTimeout(() => {
+      const intro = document.getElementById('intro-overlay');
+      if (intro) {
+        intro.style.transition = 'opacity 0.8s ease';
+        intro.style.opacity = '0';
+        setTimeout(() => {
+          intro.style.display = 'none';
+        }, 800);
+      }
+    }, 5000);
+
+    // Para animar las secciones al hacer scroll (fade-in)
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, options);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
       });
     });
   </script>
 </body>
 </html>
+
