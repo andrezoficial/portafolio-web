@@ -38,8 +38,8 @@ Este es mi portafolio profesional como desarrollador Full-Stack. Aquí comparto 
 - **ViorClinic:** - *🧑‍💻 Rol:* Creador y desarrollador - Plataforma clínica full-stack (React + Node.js + MongoDB)
 - **Sistema HCE:** - *🧑‍💻 Rol:* Desarrollador Web Freelance - Historia clínica electrónica con Laravel y FHIR
 - **API Clima:** *🧑‍💻 Rol:* Desarrollador Web Freelance- Backend Flask + OpenWeatherMap + Frontend: Interfaz web en HTML, CSS y JavaScript desplegada con GitHub Pages. extensión navegador
-- ### 🛍 Tienda de Ropa Online - *🧑‍💻 Rol:* Desarrollador Frontend Freelance - React, CSS Modules, JavaScript
-- ### 📄 Sitio Informativo para Asesor Legal - *🧑‍💻 Rol:* Desarrollador Web Freelance - React, CSS Modules, JavaScript
+- **Tienda de Ropa Online:** - *🧑‍💻 Rol:* Desarrollador Frontend Freelance - React, CSS Modules, JavaScript
+- **📄 Sitio Informativo para Asesor Legal:** - *🧑‍💻 Rol:* Desarrollador Web Freelance - React, CSS Modules, JavaScript
 
 ## 📫 Contacto
 
