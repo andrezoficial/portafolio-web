@@ -1,32 +1,59 @@
-💼 Proyectos Freelance
+# Portafolio Web - Andrés Suárez Moreno
 
-> ✨ Experiencia real como desarrollador independiente. Aunque no puedo compartir el código fuente por confidencialidad, estos proyectos demuestran mi capacidad para resolver problemas reales con tecnologías modernas.
+🌐 [Ver sitio en línea](https://www.andrezoficial.es/)
+
+Este es mi portafolio profesional como desarrollador Full-Stack. Aquí comparto mis proyectos más relevantes, habilidades técnicas, experiencia laboral y medios de contacto.
+
+## 🚀 Tecnologías Utilizadas
+
+- **Frontend:** HTML5, CSS3, JavaScript, Tailwind CSS
+- **Animaciones y UI:** SVG animado, efectos `fade-in`, diseño responsive
+- **Hosting:** AWS Amplify (https)
+- **Optimización:** SEO básico, metadatos, accesibilidad
+
+## 🛠 Características
+
+- Interfaz moderna, dark theme por defecto
+- Animación SVG personalizada al cargar el sitio
+- Secciones animadas al hacer scroll
+- Botón de descarga de CV (Word/PDF)
+- Enlaces directos a:
+  - GitHub
+  - LinkedIn
+  - WhatsApp
+- Compatible con navegadores modernos y móviles
+
+## 📁 Estructura
+
+/
+├── index.html
+├── styles.css
+├── fondo.jpg
+├── favicon.png
+└── README.md
+
+markdown
+Copiar
+Editar
+
+## ✨ Proyectos Destacados
+
+- **ViorClinic:** - *🧑‍💻 Rol:* Creador y desarrollador - Plataforma clínica full-stack (React + Node.js + MongoDB)
+- **Sistema HCE:** - *🧑‍💻 Rol:* Desarrollador Web Freelance - Historia clínica electrónica con Laravel y FHIR
+- **API Clima:** *🧑‍💻 Rol:* Desarrollador Web Freelance- Backend Flask + OpenWeatherMap + Frontend: Interfaz web en HTML, CSS y JavaScript desplegada con GitHub Pages. extensión navegador
+- ### 🛍 Tienda de Ropa Online - *🧑‍💻 Rol:* Desarrollador Frontend Freelance - React, CSS Modules, JavaScript
+- ### 📄 Sitio Informativo para Asesor Legal - *🧑‍💻 Rol:* Desarrollador Web Freelance - React, CSS Modules, JavaScript
+
+## 📫 Contacto
+
+- ✉️ andres1997rez@gmail.com  
+- 📞 +57 322 618 3938  
+- 🔗 [LinkedIn](https://www.linkedin.com/in/andres1997rez)  
+- 🔗 [GitHub](https://github.com/andrezoficial)
 
 ---
 
-### 🛍 Tienda de Ropa Online
-- *🧑‍💻 Rol:* Desarrollador Frontend Freelance  
-- *🛠 Tecnologías:* HTML5, CSS3, JavaScript, React  
-- *📋 Descripción:*  
-  Creación de un e-commerce con carrito de compras, pasarela de pagos e interfaz responsive. Formularios validados y experiencia fluida para el usuario final.  
-- *✅ Resultado:*  
-  El cliente duplicó su alcance al lanzar su tienda online totalmente funcional y adaptable a móviles.
+**“Comprometido con soluciones técnicas que generen impacto real.”**
 
----
-### 📄 Sitio Informativo para Asesor Legal
-- *🧑‍💻 Rol:* Desarrollador Web Freelance  
-- *🛠 Tecnologías:* React, CSS Modules, JavaScript  
-- *📋 Descripción:*  
-  Desarrollo completo de un sitio con varias secciones, formulario de contacto funcional, diseño profesional y responsive.  
-- *✅ Resultado:*  
-  Aumento de visibilidad online y generación de nuevos clientes desde la web.
 
----
 
-### 🔄 Integraciones con APIs Públicas
-- *🧑‍💻 Rol:* Desarrollador Frontend Freelance  
-- *🛠 Tecnologías:* React, JavaScript (fetch), APIs REST  
-- *📋 Descripción:*  
-  Consumo de APIs como OpenWeather y NewsAPI para mostrar datos dinámicos. Manejo de errores y carga para mejor UX.  
-- *✅ Resultado:*  
-  Herramientas funcionales utilizadas en múltiples páginas con contenido actualizado en tiempo real.
