@@ -32,9 +32,6 @@ Este es mi portafolio profesional como desarrollador Full-Stack. Aquí comparto 
 ├── favicon.png
 └── README.md
 
-markdown
-Copiar
-Editar
 
 ## ✨ Proyectos Destacados
 
