@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de Andrés Suárez Moreno, desarrollador full-stack apasionado por construir soluciones web modernas y escalables." />
-  <meta name="keywords" content="Desarrollador, Full-Stack, Laravel, Django, Node.js, React, Portafolio, Andrés Suárez" />
-  <meta name="author" content="Andrés Suárez Moreno" />
+  <meta name="description" content="Portafolio profesional de Andrés Suárez Moreno, desarrollador full-stack con experiencia en Laravel, Django, APIs y más.">
+  <meta name="keywords" content="Desarrollador, Full-Stack, Laravel, Django, JavaScript, Portafolio, Andrés Suárez">
+  <meta name="author" content="Andrés Suárez Moreno">
   <title>Portafolio - Andrés Suárez</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="canonical" href="https://andrezoficial.github.io/portafolio-web/" />
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="canonical" href="https://andrezoficial.github.io/portafolio-web/">
+  <link rel="alternate" hreflang="en" href="https://andrezoficial.github.io/portafolio-web/en/" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     /* Animaciones intro */
@@ -21,15 +22,6 @@
     @keyframes fadeInText {
       to {
         opacity: 1;
-      }
-    }
-
-    @keyframes glow {
-      0%, 100% {
-        text-shadow: 0 0 8px #0ff, 0 0 20px #0ff;
-      }
-      50% {
-        text-shadow: 0 0 16px #0ff, 0 0 30px #0ff;
       }
     }
 
@@ -46,28 +38,24 @@
       color: #0ff;
     }
 
-    #intro-overlay svg path {
-      stroke-dasharray: 200;
-      stroke-dashoffset: 200;
+    #intro-overlay svg polygon {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
       animation: draw 3s forwards;
-    }
-
-    #intro-overlay svg path:nth-child(2) {
-      animation-delay: 0.3s;
     }
 
     #intro-overlay h1 {
       margin-top: 20px;
       font-family: monospace;
-      font-weight: 700;
+      font-weight: 600;
       opacity: 0;
-      animation: fadeInText 2s 3s forwards, glow 2s ease-in-out 3s infinite alternate;
+      animation: fadeInText 2s 3s forwards;
     }
 
-    /* Estilos base */
+    /* Estilos base de tu página */
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: url('fondo.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
@@ -77,42 +65,34 @@
     }
 
     main > div {
-      background-color: rgba(0,0,0,0.85);
+      background-color: #000;
       padding: 2rem;
       border-radius: 1rem;
       max-width: 900px;
       margin: 2rem auto;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
       z-index: 10;
       position: relative;
     }
 
     h1, h2, h3 {
-      text-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
-      transition: transform 0.3s ease, text-shadow 0.3s ease;
+      text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
+      transition: transform 0.6s ease;
     }
 
     h1:hover, h2:hover, h3:hover {
-      transform: translateY(-3px) scale(1.05);
-      text-shadow: 0 0 12px #0ff, 0 0 25px #0ff;
+      transform: translateY(-2px) scale(1.02);
     }
 
     a {
       color: #0ff;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover, a:focus {
-      color: #22d3ee;
-      text-decoration: underline;
-      outline: none;
     }
 
     section {
       border-bottom: 1px solid #0ff;
       padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .fade-in {
@@ -129,28 +109,16 @@
     header {
       text-align: center;
       padding: 2rem 1rem 1rem;
-      background-color: rgba(0, 0, 0, 0.85);
-      box-shadow: 0 0 15px #0ff;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 10px #0ff;
       position: sticky;
       top: 0;
       z-index: 20;
     }
 
-    header p a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    header p a img {
-      filter: invert(1);
-      width: 20px;
-      height: 20px;
-      transition: filter 0.3s ease;
-    }
-
-    header p a:hover img {
-      filter: drop-shadow(0 0 5px #0ff);
+    header p a:hover,
+    header div a:hover {
+      text-decoration: underline;
     }
 
     .btn-download {
@@ -165,13 +133,11 @@
       text-align: center;
     }
 
-    .btn-download:hover,
-    .btn-download:focus {
+    .btn-download:hover {
       background-color: #22d3ee;
       cursor: pointer;
       text-decoration: none;
       animation: pulse 1s infinite;
-      outline: none;
     }
 
     img:hover {
@@ -189,7 +155,6 @@
     @media (prefers-reduced-motion: reduce) {
       * {
         transition: none !important;
-        animation: none !important;
       }
     }
   </style>
@@ -199,188 +164,186 @@
 <div id="intro-overlay" aria-label="Animación de introducción con símbolo de programación web" role="img">
   <svg width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#0ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" >
     <!-- Símbolo < -->
-    <path d="M 80 50 L 40 100 L 80 150"></path>
+    <path d="M 80 50 L 40 100 L 80 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards;"></path>
     <!-- Símbolo /> -->
-    <path d="M 120 50 L 160 100 L 120 150"></path>
+    <path d="M 120 50 L 160 100 L 120 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards 0.3s;"></path>
   </svg>
   <h1>Ing. Andrés Suárez Moreno</h1>
 </div>
 
-<header>
-  <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
-  <p class="mt-2">
-    Bogotá, Colombia |
-    <a href="https://wa.me/573226183938" target="_blank" aria-label="WhatsApp contacto">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" /> +57 322 618 3938
-    </a> |
-    <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a>
-  </p>
-  <div class="mt-6 flex justify-center items-center gap-6 flex-wrap">
-    <a href="cv-andres-suarezz.pdf" download class="btn-download" aria-label="Descargar CV Andrés Suárez">
-      Ver más CV
-    </a>
-    <a href="https://github.com/andrezoficial" target="_blank" aria-label="GitHub Andrés Suárez" rel="noopener noreferrer" class="text-cyan-400 hover:underline text-lg flex items-center gap-2">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="h-6 w-6" /> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" aria-label="LinkedIn Andrés Suárez" rel="noopener noreferrer" class="text-cyan-400 hover:underline text-lg flex items-center gap-2">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="h-6 w-6" /> LinkedIn
-    </a>
-  </div>
-</header>
+  <header>
+    <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
+    <p class="mt-2">
+      Bogotá, Colombia |
+      <a href="https://wa.me/573226183938" target="_blank" aria-label="WhatsApp contacto">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="inline h-5 w-5 mr-1" style="filter: invert(1);" /> +57 322 618 3938
+      </a> |
+      <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a>
+    </p>
+    <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
+      <a href="cv-andres-suarezz.pdf" download class="btn-download">
+        Ver más CV
+      </a>
+      <a href="https://github.com/andrezoficial" target="_blank" class="text-cyan-400 hover:underline text-lg" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="inline h-5 w-5 mr-1" alt="GitHub" /> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="inline h-5 w-5 mr-1" alt="LinkedIn" /> LinkedIn
+      </a>
+    </div>
+  </header>
 
-<main role="main" class="flex-grow">
-  <div>
-    <section class="fade-in" aria-labelledby="perfil">
-      <h2 id="perfil" class="text-2xl font-semibold">Sobre mí</h2>
-      <p class="mt-2">
-        Soy Andrés Suárez, desarrollador Full-Stack apasionado por construir aplicaciones web que combinan rendimiento, usabilidad y escalabilidad. Me especializo en crear soluciones integrales que conectan el frontend y backend con las mejores prácticas y tecnologías modernas.
-      </p>
-    </section>
-
-    <section class="fade-in" aria-labelledby="experiencia">
-      <h2 id="experiencia" class="text-2xl font-semibold">Experiencia Laboral</h2>
-      <div class="mt-2">
-        <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024 – Presente)</h3>
-        <p class="mt-1">
-          Construyo soluciones a la medida para ecommerce y plataformas digitales, integrando pasarelas de pago y optimizando la experiencia del usuario.
+  <main role="main">
+    <div>
+      <section class="fade-in" aria-labelledby="perfil">
+        <h2 id="perfil" class="text-2xl font-semibold">Perfil Profesional</h2>
+        <p class="mt-2">
+          Desarrollador Full-Stack con más de 3 años de experiencia construyendo aplicaciones web escalables. Especializado en integración de APIs y optimización de rendimiento, combinando frontend (UI/UX) y backend para entregar soluciones técnicas robustas.
         </p>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">Acoustic System SAS (2021 – 2023)</h3>
-        <p class="mt-1">
-          Participé en la creación de sistemas de salud digitales, facilitando la interoperabilidad entre plataformas y mejorando procesos internos.
+      </section>
+
+      <section class="fade-in" aria-labelledby="experiencia">
+        <h2 id="experiencia" class="text-2xl font-semibold">Experiencia Laboral</h2>
+        <div class="mt-2">
+          <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
+          <ul class="list-disc ml-6">
+            <li>Diseñé e implementé APIs REST con Stripe, PayPal, Addi, Sistecredito.</li>
+            <li>Desarrollé plataformas de e-commerce con login y carrito de compras.</li>
+            <li>Optimicé carga de sitios web reduciendo 1.5s con caching y CDN.</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">Acoustic System SAS (2021–2023)</h3>
+          <ul class="list-disc ml-6">
+            <li>Desarrollo de HCE en Laravel, integrando FHIR/HL7 con laboratorios.</li>
+            <li>Implementación de notificaciones automáticas por correo.</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">Fumisuar SAS (2019–2020)</h3>
+          <ul class="list-disc ml-6">
+            <li>Maquetación responsiva con Bootstrap.</li>
+            <li>Animaciones interactivas con JavaScript.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="fade-in" aria-labelledby="habilidades">
+        <h2 id="habilidades" class="text-2xl font-semibold">Habilidades Técnicas</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
+          <li><strong>Frameworks/Librerías:</strong> 
+            <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="inline h-5 w-5 mr-1" />
+            Laravel, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="inline h-5 w-5 mr-1" />
+            Django, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Flask" class="inline h-5 w-5 mr-1" />
+            Flask, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="inline h-5 w-5 mr-1" />
+            Node.js, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" class="inline h-5 w-5 mr-1" />
+            jQuery, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap" class="inline h-5 w-5 mr-1" />
+            Bootstrap, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="inline h-5 w-5 mr-1" />
+            React
+          </li>
+          <li><strong>Herramientas:</strong> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="inline h-5 w-5 mr-1" />
+            Git, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker" class="inline h-5 w-5 mr-1" />
+            Docker, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="inline h-5 w-5 mr-1" />
+            Postman, 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="inline h-5 w-5 mr-1" />
+            MongoDB Atlas
+          </li>
+        </ul>
+      </section>
+
+      <section class="fade-in" aria-labelledby="educacion">
+        <h2 id="educacion" class="text-2xl font-semibold">Educación</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
+          <li>Tecnología en Topografía – Universidad Distrital F.J.C. (2020)</li>
+        </ul>
+      </section>
+
+      <section class="fade-in" aria-labelledby="certificaciones">
+        <h2 id="certificaciones" class="text-2xl font-semibold">Certificaciones</h2>
+        <ul class="list-disc ml-6 mt-2">
+          <li>Python con Django Master – Udemy (2023)</li>
+          <li>JavaScript Moderno – Udemy (2023)</li>
+          <li>Desarrollo web con Laravel 8 – Udemy (2022)</li>
+        </ul>
+      </section>
+          <section class="fade-in" aria-labelledby="proyectos">
+        <h2 id="proyectos" class="text-2xl font-semibold">Proyectos Destacados</h2>
+        <div class="mt-2">
+          <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
+          <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold">
+            <a href="https://andrezoficial.github.io/clima/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
+              API de Clima en Tiempo Real
+            </a>
+          </h3>
+          <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
+        </div>
+      </section>
+
+      <section class="fade-in" aria-labelledby="contacto">
+        <h2 id="contacto" class="text-2xl font-semibold">Contacto</h2>
+        <p class="mt-2">
+          Estoy disponible para nuevos desafíos.<br />
+          "Comprometido con soluciones técnicas que generen impacto real."
         </p>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">Fumisuar SAS (2019 – 2020)</h3>
-        <p class="mt-1">
-          Desarrollé interfaces dinámicas y adaptables para mejorar la interacción con usuarios.
-        </p>
-      </div>
-    </section>
+      </section>
+    </div> <!-- Ahora cierras el contenedor aquí -->
 
-    <section class="fade-in" aria-labelledby="habilidades">
-      <h2 id="habilidades" class="text-2xl font-semibold">Habilidades Técnicas</h2>
-      <div class="grid grid-cols-3 sm:grid-cols-5 gap-6 mt-4 text-center">
-        <div class="flex flex-col items-center">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12 w-12" />
-          <span class="mt-1">React</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-12 w-12" />
-          <span class="mt-1">Node.js</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="h-12 w-12" />
-          <span class="mt-1">MongoDB</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-12 w-12" />
-          <span class="mt-1">Python</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="h-12 w-12" />
-          <span class="mt-1">Laravel</span>
-        </div>
-      </div>
-    </section>
+  </main>
 
-    <section class="fade-in" aria-labelledby="educacion">
-      <h2 id="educacion" class="text-2xl font-semibold">Educación</h2>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
-        <li>Tecnología en Topografía – Universidad Distrital F.J.C. (2020)</li>
-      </ul>
-    </section>
+  <footer class="text-center p-6 mt-auto bg-black bg-opacity-70">
+    <p>
+      &copy; 2024 Andrés Suárez Moreno. Código disponible en 
+      <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">GitHub</a>.
+    </p>
+  </footer>
 
-    <section class="fade-in" aria-labelledby="certificaciones">
-      <h2 id="certificaciones" class="text-2xl font-semibold">Certificaciones</h2>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Python con Django Master – Udemy (2023)</li>
-        <li>JavaScript Moderno – Udemy (2023)</li>
-        <li>Desarrollo web con Laravel 8 – Udemy (2022)</li>
-      </ul>
-    </section>
+  <script>
+    // Esperar 5 segundos para ocultar el overlay y mostrar el contenido
+    setTimeout(() => {
+      const intro = document.getElementById('intro-overlay');
+      if (intro) {
+        intro.style.transition = 'opacity 0.8s ease';
+        intro.style.opacity = '0';
+        setTimeout(() => {
+          intro.style.display = 'none';
+        }, 800);
+      }
+    }, 5000);
 
-    <section class="fade-in" aria-labelledby="proyectos">
-      <h2 id="proyectos" class="text-2xl font-semibold">Proyectos Destacados</h2>
-      <div class="mt-2">
-        <h3 class="text-xl font-bold">
-          <a href="https://main.d2l6wfab4sd4yu.amplifyapp.com/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
-            ViorClinic – Plataforma de Gestión Clínica
-          </a>
-        </h3>
-        <p>
-          Plataforma web para gestionar pacientes, citas y historiales médicos con autenticación segura, notificaciones en tiempo real y despliegue en la nube. Tecnologías: React, Node.js, Express, MongoDB, AWS Amplify.
-        </p>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">Sistema de Historia Clínica Electrónica (HCE)</h3>
-        <p>Aplicativo en PHP/Laravel con APIs médicas FHIR. Incluye módulo de notificaciones automáticas y dashboard administrativo.</p>
-      </div>
-      <div class="mt-4">
-        <h3 class="text-xl font-bold">
-          <a href="https://andrezoficial.github.io/clima/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
-            API de Clima en Tiempo Real
-          </a>
-        </h3>
-        <p>Backend en Flask que consume datos de OpenWeatherMap API.</p>
-      </div>
-    </section>
+    // Para animar las secciones al hacer scroll (fade-in)
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
 
-    <section class="fade-in" aria-labelledby="contacto">
-      <h2 id="contacto" class="text-2xl font-semibold">Contacto</h2>
-      <p class="mt-2">
-        ¿Quieres charlar sobre tecnología, proyectos o colaboración? Escríbeme a
-        <a href="mailto:andres1997rez@gmail.com" class="underline text-cyan-400">andres1997rez@gmail.com</a> o visítame en
-        <a href="https://github.com/andrezoficial" target="_blank" class="underline text-cyan-400" rel="noopener noreferrer">GitHub</a>.
-      </p>
-      <p class="mt-4 italic text-cyan-400 font-semibold">"Comprometido con soluciones técnicas que generen impacto real."</p>
-    </section>
-  </div>
-</main>
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, options);
 
-<footer class="text-center p-6 mt-auto bg-black bg-opacity-70">
-  <p>
-    &copy; 2024 Andrés Suárez Moreno. Código disponible en
-    <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">GitHub</a>.
-  </p>
-</footer>
-
-<script>
-  // Ocultar intro después de 5 segundos
-  setTimeout(() => {
-    const intro = document.getElementById('intro-overlay');
-    if (intro) {
-      intro.style.transition = 'opacity 0.8s ease';
-      intro.style.opacity = '0';
-      setTimeout(() => {
-        intro.style.display = 'none';
-      }, 800);
-    }
-  }, 5000);
-
-  // Animación fade-in al hacer scroll
-  document.addEventListener('DOMContentLoaded', () => {
-    const faders = document.querySelectorAll('.fade-in');
-    const options = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
       });
-    }, options);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
     });
-  });
-</script>
+  </script>
 </body>
 </html>
-
