@@ -60,7 +60,7 @@ LinkedIn: linkedin.com/in/andres-suarez-moreno
 
 GitHub: github.com/andrezoficial
 
-Twitter: @andrezoficial
+
 
 🙏 Agradecimientos
 
