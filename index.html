@@ -3,352 +3,885 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de Andrés Suárez Moreno, desarrollador full-stack con experiencia en Laravel, Django, APIs y más.">
-  <meta name="keywords" content="Desarrollador, Full-Stack, Laravel, Django, JavaScript, Portafolio, Andrés Suárez">
+  <meta name="description" content="Portafolio profesional de Andrés Suárez Moreno, desarrollador full-stack especializado en JavaScript, React, Node.js y soluciones web escalables.">
+  <meta name="keywords" content="Desarrollador, Full-Stack, JavaScript, React, Node.js, Express, MongoDB, PostgreSQL, Laravel, Portafolio, Andrés Suárez">
   <meta name="author" content="Andrés Suárez Moreno">
-  <title>Portafolio - Andrés Suárez</title>
+  <title>Andrés Suárez - Desarrollador Full-Stack</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="canonical" href="https://andrezoficial.github.io/portafolio-web/">
-  <link rel="alternate" hreflang="en" href="https://andrezoficial.github.io/portafolio-web/en/" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Animaciones intro */
-    @keyframes draw {
-      to {
-        stroke-dashoffset: 0;
-      }
+    :root {
+      --primary-color: #0ea5e9;
+      --primary-dark: #0284c7;
+      --accent-color: #06b6d4;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: rgba(30, 41, 59, 0.8);
+      --border-color: rgba(6, 182, 212, 0.3);
     }
 
-    @keyframes fadeInText {
-      to {
-        opacity: 1;
-      }
+    * {
+      box-sizing: border-box;
     }
 
-    /* Estilos para la intro */
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Intro Animation */
     #intro-overlay {
       position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: #000;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       flex-direction: column;
-      color: #0ff;
+      opacity: 1;
+      transition: opacity 0.8s ease;
     }
 
-    #intro-overlay svg polygon {
-      stroke-dasharray: 800;
-      stroke-dashoffset: 800;
-      animation: draw 3s forwards;
-    }
-
-    #intro-overlay h1 {
-      margin-top: 20px;
-      font-family: monospace;
-      font-weight: 600;
-      opacity: 0;
-      animation: fadeInText 2s 3s forwards;
-    }
-
-    /* Estilos base de tu página */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('fondo.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      min-height: 100vh;
+    .intro-logo {
+      width: 120px;
+      height: 120px;
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
       display: flex;
-      flex-direction: column;
-    }
-
-    main > div {
-      background-color: #000;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 900px;
-      margin: 2rem auto;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      z-index: 10;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
       position: relative;
+      overflow: hidden;
     }
 
-    h1, h2, h3 {
-      text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
-      transition: transform 0.6s ease;
+    .intro-logo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent);
+      animation: rotate 2s linear infinite;
     }
 
-    h1:hover, h2:hover, h3:hover {
-      transform: translateY(-2px) scale(1.02);
+    .intro-logo::after {
+      content: '</>';
+      position: relative;
+      z-index: 2;
+      background: var(--bg-primary);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
     }
 
-    a {
-      color: #0ff;
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .intro-text {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .profile-info h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .profile-info .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0.5rem 0;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    section {
-      border-bottom: 1px solid #0ff;
-      padding-bottom: 1rem;
+    .contact-item:hover {
+      color: var(--primary-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin: 0 0 1.5rem 0;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-icon {
+      width: 2rem;
+      height: 2rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-category h3 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-tag img {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Experience */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      transform: translateX(-5px);
+    }
+
+    .job-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .company {
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .period {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
       margin-bottom: 1rem;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    .achievements {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
+    .achievements li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 1.5rem;
     }
 
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0 0 10px #0ff;
-      position: sticky;
-      top: 0;
-      z-index: 20;
+    .achievements li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
     }
 
-    header p a:hover,
-    header div a:hover {
-      text-decoration: underline;
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .btn-download {
-      background-color: #06b6d4;
-      color: black;
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
       font-weight: 600;
-      padding: 0.5rem 1.5rem;
-      border-radius: 9999px;
-      box-shadow: 0 4px 6px rgba(6, 182, 212, 0.5);
-      transition: background-color 0.3s ease;
-      display: inline-block;
-      text-align: center;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .btn-download:hover {
-      background-color: #22d3ee;
-      cursor: pointer;
+    .project-link {
+      color: var(--primary-color);
       text-decoration: none;
-      animation: pulse 1s infinite;
     }
 
-    img:hover {
-      transform: scale(1.1);
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: drop-shadow(0 0 5px #0ff);
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.5); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
+    .tech-tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-primary);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-info h1 {
+        font-size: 2rem;
+      }
+
+      .contact-info {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 2rem 1rem;
+      }
+    }
+
+    /* Smooth animations */
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
       }
     }
   </style>
 </head>
 <body>
-<!-- Intro Overlay -->
-<div id="intro-overlay" aria-label="Animación de introducción con símbolo de programación web" role="img">
-  <svg width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#0ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" >
-    <!-- Símbolo < -->
-    <path d="M 80 50 L 40 100 L 80 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards;"></path>
-    <!-- Símbolo /> -->
-    <path d="M 120 50 L 160 100 L 120 150" stroke-dasharray="200" stroke-dashoffset="200" style="animation: draw 3s forwards 0.3s;"></path>
-  </svg>
-  <h1>Ing. Andrés Suárez Moreno</h1>
-</div>
+  <!-- Intro Overlay -->
+  <div id="intro-overlay" aria-label="Cargando portafolio">
+    <div class="intro-logo"></div>
+    <div class="intro-text">
+      <h1 class="text-3xl font-bold mb-2">Andrés Suárez Moreno</h1>
+      <p class="text-lg text-gray-400">Desarrollador Full-Stack</p>
+    </div>
+  </div>
 
   <header>
-    <h1 class="text-4xl font-bold">Andrés Suárez Moreno</h1>
-    <p class="mt-2">
-      Bogotá, Colombia |
-      <a href="https://wa.me/573226183938" target="_blank" aria-label="WhatsApp contacto">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="inline h-5 w-5 mr-1" style="filter: invert(1);" /> +57 322 618 3938
-      </a> |
-      <a href="mailto:andres1997rez@gmail.com">andres1997rez@gmail.com</a>
-    </p>
-    <div class="mt-6 flex justify-center items-center gap-4 flex-wrap">
-      <a href="cv-andres-suarezz.pdf" download class="btn-download">
-        Ver más CV
-      </a>
-      <a href="https://github.com/andrezoficial" target="_blank" class="text-cyan-400 hover:underline text-lg" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="inline h-5 w-5 mr-1" alt="GitHub" /> GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="text-cyan-400 hover:underline text-lg" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="inline h-5 w-5 mr-1" alt="LinkedIn" /> LinkedIn
-      </a>
+    <div class="header-content">
+      <div class="profile-header">
+        <div class="profile-info">
+          <h1>Andrés Suárez Moreno</h1>
+          <p class="subtitle">Desarrollador Full-Stack | JavaScript | React | Node.js</p>
+          <div class="contact-info">
+            <a href="https://wa.me/573226183938" target="_blank" class="contact-item">
+              📱 +57 322 618 3938
+            </a>
+            <a href="mailto:andres1997rez@gmail.com" class="contact-item">
+              ✉️ andres1997rez@gmail.com
+            </a>
+            <span class="contact-item">📍 Bogotá, Colombia</span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="cv-andres-suarezz.pdf" download class="btn btn-primary">
+            📄 Descargar CV
+          </a>
+          <a href="https://github.com/andrezoficial" target="_blank" class="btn btn-outline" rel="noopener noreferrer">
+            🔗 GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="btn btn-outline" rel="noopener noreferrer">
+            💼 LinkedIn
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main role="main">
-    <div>
-      <section class="fade-in" aria-labelledby="perfil">
-        <h2 id="perfil" class="text-2xl font-semibold">Perfil Profesional</h2>
-        <p class="mt-2">
-          Soy Andrés Suárez, desarrollador Full-Stack apasionado por transformar ideas en aplicaciones web funcionales y escalables. Me especializo en crear soluciones que conectan la experiencia de usuario con una arquitectura sólida y eficiente. Me encanta aprender nuevas tecnologías y enfrentar retos que impulsen mi crecimiento profesional. Actualmente trabajo en proyectos clínicos y de e-commerce, combinando React, Node.js y más.
-      </section>
+  <main>
+    <!-- Profile Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">👨‍💻</div>
+        Perfil Profesional
+      </h2>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+        Desarrollador Full-Stack con más de 3 años de experiencia creando aplicaciones web escalables y de alto rendimiento. 
+        Especializado en el ecosistema JavaScript moderno con React, Node.js y Express, complementado con expertise en bases de datos 
+        SQL y NoSQL. Apasionado por transformar ideas complejas en soluciones digitales elegantes que generen impacto real.
+      </p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">3+</span>
+          <span class="stat-label">Años de Experiencia</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Proyectos Completados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">Tecnologías Dominadas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Satisfacción del Cliente</span>
+        </div>
+      </div>
+    </section>
 
-      <section class="fade-in" aria-labelledby="experiencia">
-        <h2 id="experiencia" class="text-2xl font-semibold">Experiencia Laboral</h2>
-        <div class="mt-2">
-          <h3 class="text-xl font-bold">Desarrollador Full-Stack Freelance (2024–Presente)</h3>
-          <ul class="list-disc ml-6">
-            <li>Diseñé e implementé APIs REST con Stripe, PayPal, Addi, Sistecredito.</li>
-            <li>Desarrollo de aplicaciones web modernas con interfaces limpias y usables.</li>
-            <li>Construcción de APIs REST seguras y eficientes para conectar datos y servicios.</li>
-            <li>Integración de sistemas externos (pagos, notificaciones, autenticación).</li>
-            <li>Optimización de rendimiento y escalabilidad para proyectos en producción.</li>
-            <li>Despliegue en la nube usando AWS, render y otras plataformas.</li>
+    <!-- Skills Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">🛠️</div>
+        Habilidades Técnicas
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">HTML5 & CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">PHP (Laravel)</span>
+            <span class="skill-tag">Python (Django/Flask)</span>
+            <span class="skill-tag">APIs REST</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Bases de Datos</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Optimización de Consultas</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>DevOps & Herramientas</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Postman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">💼</div>
+        Experiencia Laboral
+      </h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="job-title">Desarrollador Full-Stack Freelance</div>
+          <div class="company">Independiente</div>
+          <div class="period">2024 – Presente</div>
+          <ul class="achievements">
+            <li>Diseñé e implementé APIs REST con Node.js y Express para integración de múltiples pasarelas de pago (Stripe, PayPal, Addi, Sistecrédito)</li>
+            <li>Desarrollé plataformas de e-commerce completas con autenticación JWT y sistema de roles avanzado</li>
+            <li>Optimicé tiempos de carga en un 40% mediante implementación de estrategias de caching y CDN</li>
+            <li>Gestioné flujos de trabajo con Git/GitHub y despliegues automatizados en AWS, Heroku y Vercel</li>
+            <li>Lideré proyectos end-to-end desde la conceptualización hasta la producción</li>
           </ul>
         </div>
-        <div class="mt-4">
-          <h3 class="text-xl font-bold">Acoustic System SAS (2021–2023)</h3>
-          <ul class="list-disc ml-6">
-            <li>Desarrollo de HCE en Laravel, integrando FHIR/HL7 con laboratorios.</li>
-            <li>Implementación de notificaciones automáticas por correo.</li>
+        
+        <div class="timeline-item">
+          <div class="job-title">Desarrollador Full-Stack</div>
+          <div class="company">Acoustic System SAS</div>
+          <div class="period">2021 – 2023</div>
+          <ul class="achievements">
+            <li>Desarrollé sistema de Historia Clínica Electrónica con Laravel y PostgreSQL para gestión hospitalaria</li>
+            <li>Integré APIs médicas FHIR/HL7 garantizando interoperabilidad entre sistemas de salud</li>
+            <li>Implementé sistema de notificaciones automáticas y dashboards administrativos con React</li>
+            <li>Colaboré en equipo ágil usando metodologías Scrum con GitHub Projects para gestión de tareas</li>
           </ul>
         </div>
-        <div class="mt-4">
-          <h3 class="text-xl font-bold">Fumisuar SAS (2019–2020)</h3>
-          <ul class="list-disc ml-6">
-            <li>Maquetación responsiva con Bootstrap.</li>
-            <li>Animaciones interactivas con JavaScript.</li>
+        
+        <div class="timeline-item">
+          <div class="job-title">Desarrollador Frontend Junior</div>
+          <div class="company">Fumisuar SAS</div>
+          <div class="period">2019 – 2020</div>
+          <ul class="achievements">
+            <li>Desarrollé interfaces responsivas con Bootstrap y CSS3 para aplicaciones empresariales</li>
+            <li>Implementé animaciones interactivas con JavaScript vanilla mejorando UX</li>
+            <li>Colaboré en optimización de rendimiento frontend y mejoras de accesibilidad</li>
           </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="fade-in" aria-labelledby="habilidades">
-        <h2 id="habilidades" class="text-2xl font-semibold">Habilidades Técnicas</h2>
-        <ul class="list-disc ml-6 mt-2">
-          <li><strong>Lenguajes:</strong> PHP, Python, JavaScript, SQL</li>
-          <li><strong>Frameworks/Librerías:</strong> 
-            <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="inline h-5 w-5 mr-1" />
-            Laravel, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="inline h-5 w-5 mr-1" />
-            Django, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Flask" class="inline h-5 w-5 mr-1" />
-            Flask, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="inline h-5 w-5 mr-1" />
-            Node.js, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery" class="inline h-5 w-5 mr-1" />
-            jQuery, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap" class="inline h-5 w-5 mr-1" />
-            Bootstrap, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="inline h-5 w-5 mr-1" />
-            React
-          </li>
-          <li><strong>Herramientas:</strong> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="inline h-5 w-5 mr-1" />
-            Git, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" alt="Docker" class="inline h-5 w-5 mr-1" />
-            Docker, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="inline h-5 w-5 mr-1" />
-            Postman, 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="inline h-5 w-5 mr-1" />
-            MongoDB Atlas
-          </li>
-        </ul>
-      </section>
-
-      <section class="fade-in" aria-labelledby="educacion">
-        <h2 id="educacion" class="text-2xl font-semibold">Educación</h2>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Ingeniería de Sistemas – UTEL (Materias culminadas)</li>
-          <li>Ingenieria Topografíca – Universidad Distrital F.J.C. (2020)</li>
-        </ul>
-      </section>
-
-      <section class="fade-in" aria-labelledby="certificaciones">
-        <h2 id="certificaciones" class="text-2xl font-semibold">Certificaciones</h2>
-        <ul class="list-disc ml-6 mt-2">
-          <li>Python con Django Master – Udemy (2023)</li>
-          <li>JavaScript Moderno – Udemy (2023)</li>
-          <li>Desarrollo web con Laravel 8 – Udemy (2022)</li>
-        </ul>
-      </section>
-          <section class="fade-in" aria-labelledby="proyectos">
-        <h2 id="proyectos" class="text-2xl font-semibold">Proyectos Destacados</h2>
-        <div class="mt-2">
-          <h3 class="text-xl font-bold">
-            <a href="https://www.viorclinic.es/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
-           ViorClinic </a>:</h3>
-          <p> Plataforma clínica para administrar pacientes, citas y historias médicas. Mejoró la gestión del consultorio y facilitó la comunicación médica-paciente. Tecnologías: React, Node.js, Express, MongoDB, AWS Amplify.</p>
+    <!-- Projects Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">🚀</div>
+        Proyectos Destacados
+      </h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">
+              <span>Lafersua Ecommerce</span>
+              <span class="text-2xl">🛒</span>
+            </div>
+            <p class="project-description">
+              Plataforma de ecommerce completa con carrito de compras, sistema de pagos integrado y panel administrativo. 
+              Incluye autenticación JWT, gestión de inventario y analytics en tiempo real.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Stripe API</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-4">
-          <h3 class="text-xl font-bold">
-            <a href="https://andrezoficial.github.io/clima/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">
-              API de Clima en Tiempo Real
-            </a>
-          </h3>
-          <p>Backend: Python y Flask, consumiendo datos en tiempo real desde OpenWeatherMap.
-Frontend: Interfaz web en HTML, CSS y JavaScript desplegada con GitHub Pages.
-Extensión para navegadores: Compatible con Chrome y Edge, permitiendo consultar el clima actual directamente desde el navegador.
-</p>
+        
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">
+              <a href="https://www.viorclinic.es/" target="_blank" class="project-link">ViorClinic</a>
+              <span class="text-2xl">🏥</span>
+            </div>
+            <p class="project-description">
+              Sistema integral de gestión clínica para administración de pacientes, citas médicas e historias clínicas. 
+              Mejoró significativamente la eficiencia operativa del consultorio.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">AWS Amplify</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+          </div>
         </div>
-      </section>
+        
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">
+              <a href="https://andrezoficial.github.io/clima/" target="_blank" class="project-link">API Clima Real</a>
+              <span class="text-2xl">🌤️</span>
+            </div>
+            <p class="project-description">
+              API completa de clima con backend en Python/Flask, frontend responsive y extensión para navegadores. 
+              Consumo optimizado de OpenWeatherMap con sistema de caching inteligente.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">OpenWeather API</span>
+              <span class="tech-tag">Chrome Extension</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="fade-in" aria-labelledby="contacto">
-        <h2 id="contacto" class="text-2xl font-semibold">Contacto</h2>
-        <p class="mt-2">
-          Estoy disponible para nuevos desafíos.<br />
-          "Comprometido con soluciones técnicas que generen impacto real."
+    <!-- Education & Certifications -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">🎓</div>
+        Educación y Certificaciones
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div>
+          <h3 style="color: var(--primary-color); font-size: 1.25rem; margin-bottom: 1rem;">Educación</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+              <div style="font-weight: 600;">Ingeniería en Sistemas Computacionales</div>
+              <div style="color: var(--text-secondary); font-size: 0.9rem;">UTEL, México | Promedio: 9.07</div>
+            </li>
+            <li style="padding: 0.75rem 0;">
+              <div style="font-weight: 600;">Tecnólogo en Ingeniería Topográfica</div>
+              <div style="color: var(--text-secondary); font-size: 0.9rem;">Universidad Distrital F.J.C. (2020)</div>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 style="color: var(--primary-color); font-size: 1.25rem; margin-bottom: 1rem;">Certificaciones</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 0.5rem 0; color: var(--text-secondary);">🏆 Desarrollador Full Stack – fullstackopen (2024)</li>
+            <li style="padding: 0.5rem 0; color: var(--text-secondary);">🏆 JavaScript Moderno – Udemy (2023)</li>
+            <li style="padding: 0.5rem 0; color: var(--text-secondary);">🏆 SQL Profesional – Udemy (2023)</li>
+            <li style="padding: 0.5rem 0; color: var(--text-secondary);">🏆 Python Master – Udemy (2023)</li>
+            <li style="padding: 0.5rem 0; color: var(--text-secondary);">🏆 Git & GitHub Masterclass – Udemy (2022)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon">📞</div>
+        ¿Listo para colaborar?
+      </h2>
+      <div style="text-align: center; padding: 2rem 0;">
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+          Estoy disponible para nuevos desafíos y proyectos emocionantes.<br>
+          <strong style="color: var(--primary-color);">"Comprometido con soluciones técnicas que generen impacto real."</strong>
         </p>
-      </section>
-    </div> <!-- Ahora cierras el contenedor aquí -->
-
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="https://wa.me/573226183938" target="_blank" class="btn btn-primary">
+            💬 WhatsApp
+          </a>
+          <a href="mailto:andres1997rez@gmail.com" class="btn btn-outline">
+            ✉️ Email
+          </a>
+          <a href="https://calendly.com/andres1997rez" target="_blank" class="btn btn-outline">
+            📅 Agendar Reunión
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="text-center p-6 mt-auto bg-black bg-opacity-70">
-    <p>
+  <footer>
+    <p style="color: var(--text-secondary);">
       &copy; 2024 Andrés Suárez Moreno. Código disponible en 
-      <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">GitHub</a>.
+      <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;">
+        GitHub
+      </a>
     </p>
   </footer>
 
   <script>
-    // Esperar 5 segundos para ocultar el overlay y mostrar el contenido
+    // Intro Animation
     setTimeout(() => {
       const intro = document.getElementById('intro-overlay');
       if (intro) {
-        intro.style.transition = 'opacity 0.8s ease';
         intro.style.opacity = '0';
         setTimeout(() => {
           intro.style.display = 'none';
         }, 800);
       }
-    }, 5000);
+    }, 3000);
 
-    // Para animar las secciones al hacer scroll (fade-in)
+    // Intersection Observer for animations
     document.addEventListener('DOMContentLoaded', () => {
-      const faders = document.querySelectorAll('.fade-in');
+      const sections = document.querySelectorAll('.section');
       const options = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
       };
 
-      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
         });
       }, options);
 
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Add stagger animation to timeline items
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+      });
+
+      // Add hover effects to project cards
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.borderColor = 'var(--primary-color)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.borderColor = 'var(--border-color)';
+        });
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add loading states to buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (this.href && this.href.includes('mailto:')) {
+          this.style.opacity = '0.7';
+          setTimeout(() => {
+            this.style.opacity = '1';
+          }, 1000);
+        }
       });
     });
   </script>
