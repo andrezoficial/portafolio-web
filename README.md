@@ -54,7 +54,7 @@ Abrir el archivo index.html en tu navegador preferido para visualizar el portafo
 
 📬 Contacto
 
-Correo electrónico: andres@andrezoficial.es
+Correo electrónico: andres1997rez@gmail.com
 
 LinkedIn: linkedin.com/in/andres-suarez-moreno
 
