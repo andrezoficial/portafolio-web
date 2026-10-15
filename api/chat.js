@@ -1,12 +1,12 @@
 const CONTEXTO_ANDRES = `
-Eres el asistente virtual del portafolio de Andrés Suárez Moreno. Responde en español, de forma natural, amable y profesional. No inventes datos.
+Eres el asistente virtual del portafolio de Andrés Suárez Moreno (no eres Andrés; si te preguntan, aclara que eres un asistente virtual). Responde siempre en español, con tono profesional, cordial y formal (trata al interlocutor de usted), de forma clara y concisa, sin emojis. No inventes datos ni cifras: no menciones porcentajes ni volúmenes que no aparezcan en esta información.
 
 ## PERFIL
 Desarrollador Full-Stack Semi Senior en Bogotá, Colombia. Trabaja con React, JavaScript ES6+, Node.js/Express, PostgreSQL, MySQL, MongoDB, PHP/Laravel, Python (Django/Flask), APIs REST, JWT, microservicios, Docker, Git/GitHub, CI/CD, AWS, Heroku y Vercel. Experiencia con Jest, Mocha, Postman, OpenAPI/Swagger y pasarelas Stripe, PayPal, MercadoPago, Addi y Bold.
 
 ## EXPERIENCIA
-- Freelance (2024–presente): APIs REST con autenticación JWT y roles; tres plataformas e-commerce; integración de pasarelas de pago; optimización de cargas reportada del 40%; CI/CD y despliegues en AWS, Heroku y Vercel.
-- Acoustic System SAS (2021–2023): módulos de Historia Clínica Electrónica con Laravel y PostgreSQL para más de cinco centros médicos; más de 10.000 consultas al mes; interoperabilidad FHIR/HL7; dashboards React y notificaciones.
+- Freelance (2024–presente): APIs REST con autenticación JWT y roles; plataformas e-commerce; integración de pasarelas de pago; optimización de tiempos de carga; CI/CD y despliegues en AWS, Heroku y Vercel.
+- Acoustic System SAS (2021–2023): módulos de Historia Clínica Electrónica con Laravel y PostgreSQL para varios centros médicos; interoperabilidad FHIR/HL7; dashboards React y notificaciones.
 No añadas otras empresas o puestos que no estén en esta información.
 
 ## PROYECTOS
@@ -74,41 +74,55 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-        signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({
-          system_instruction: {
-            parts: [{ text: CONTEXTO_ANDRES }]
-          },
-          contents: [
-            ...historialLimitado,
-            { role: 'user', parts: [{ text: message }] }
-          ],
-          generationConfig: {
-            maxOutputTokens: 800,
-            temperature: 0.7,
-            // gemini-2.5-flash "piensa" por defecto y esos tokens consumen maxOutputTokens,
-            // dejando la respuesta vacía o cortada. Se desactiva para un chat simple.
-            thinkingConfig: { thinkingBudget: 0 }
-          }
-        })
+    // Los modelos de Gemini se retiran o se restringen con el tiempo (p. ej. 2.5 Flash ya solo
+    // está disponible para proyectos que lo usaron antes). Se prueban en orden hasta que uno responda.
+    // Se puede forzar uno con la variable de entorno GEMINI_MODEL.
+    const modelos = [process.env.GEMINI_MODEL, 'gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-2.5-flash']
+      .filter((m, i, arr) => m && arr.indexOf(m) === i);
+
+    let data = null;
+    for (const modelo of modelos) {
+      const generationConfig = { maxOutputTokens: 1500, temperature: 0.7 };
+      // 2.5 Flash "piensa" por defecto y esos tokens consumen maxOutputTokens: se desactiva.
+      if (modelo.startsWith('gemini-2.5')) {
+        generationConfig.maxOutputTokens = 800;
+        generationConfig.thinkingConfig = { thinkingBudget: 0 };
       }
-    );
 
-    const data = await response.json();
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+          signal: AbortSignal.timeout(20000),
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: CONTEXTO_ANDRES }] },
+            contents: [
+              ...historialLimitado,
+              { role: 'user', parts: [{ text: message }] }
+            ],
+            generationConfig
+          })
+        }
+      );
 
-    if (!response.ok) {
-      console.error('Gemini API error:', response.status, data?.error?.status || 'unknown');
+      const resultado = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        data = resultado;
+        break;
+      }
+      // El mensaje real queda en los logs de Vercel para poder diagnosticar.
+      console.error(`Gemini API error [${modelo}]:`, response.status, resultado?.error?.status || 'unknown', resultado?.error?.message || '');
+    }
+
+    if (!data) {
       return res.status(502).json({ error: 'El asistente no pudo responder en este momento. Intenta por WhatsApp o correo.' });
     }
 
     const parts = data?.candidates?.[0]?.content?.parts;
     const reply = (Array.isArray(parts) ? parts.map(part => part?.text || '').join('').trim() : '')
-      || 'Lo siento, no pude procesar tu mensaje. Intenta contactarme por WhatsApp.';
+      || 'Lo siento, no pude procesar su mensaje. Puede contactar a Andrés por WhatsApp o correo electrónico.';
 
     return res.status(200).json({ reply });
   } catch (error) {

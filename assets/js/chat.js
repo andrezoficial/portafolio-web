@@ -38,20 +38,20 @@ import { escapeHTML } from "./utilities.js";
     export function selectOption(option) {
       const responses = {
         'proyecto': {
-          message: '¡Perfecto! 🚀 Me encanta trabajar en nuevos proyectos. ¿Podrías contarme más detalles sobre lo que tienes en mente?',
-          followUp: 'Te recomiendo que me contactes por WhatsApp para una conversación más detallada.'
+          message: 'Con gusto lo atiendo. ¿Podría describir brevemente el proyecto que tiene en mente?',
+          followUp: 'Para una conversación más detallada, puede contactar directamente a Andrés por WhatsApp o correo electrónico.'
         },
         'colaboracion': {
-          message: '¡Excelente! 🤝 Siempre estoy abierto a colaboraciones interesantes. ¿En qué tipo de proyecto estás trabajando?',
-          followUp: 'Podemos coordinar una videollamada para conocernos mejor.'
+          message: 'Andrés está abierto a colaboraciones profesionales. ¿En qué tipo de proyecto trabaja actualmente?',
+          followUp: 'Si lo desea, puede coordinar una videollamada a través de WhatsApp o correo electrónico.'
         },
         'consulta': {
-          message: '💡 Con gusto te ayudo con tu consulta técnica. ¿Es sobre alguna tecnología específica o arquitectura de software?',
-          followUp: 'Puedo asesorarte en JavaScript, React, Node.js, bases de datos y más.'
+          message: 'Con gusto le ayudo con su consulta técnica. ¿Se relaciona con alguna tecnología o con la arquitectura de una solución?',
+          followUp: 'Las áreas de experiencia incluyen JavaScript, React, Node.js, bases de datos y servicios en la nube.'
         },
         'cv': {
-          message: '📄 ¡Por supuesto! Puedes descargar mi CV actualizado desde el botón en el header.',
-          followUp: 'También puedes revisar mis proyectos destacados aquí en el portafolio.'
+          message: 'Puede descargar la hoja de vida actualizada desde el botón "Descargar hoja de vida", en la parte superior de la página.',
+          followUp: 'También puede revisar los proyectos destacados en este portafolio.'
         }
       };
 
@@ -172,11 +172,11 @@ import { escapeHTML } from "./utilities.js";
       conversationHistory.push({ role: 'user', parts: [{ text: message }] });
       conversationHistory.push({ role: 'model', parts: [{ text: data.reply }] });
     } else {
-      addBotMessageDirect(data.error || 'Ocurrió un error. Intenta contactarme por WhatsApp 📱');
+      addBotMessageDirect(data.error || 'Ocurrió un error. Puede contactar a Andrés por WhatsApp o correo electrónico.');
     }
   } catch (error) {
     hideTypingIndicator();
-    addBotMessageDirect('No pude conectar con el servidor. Intenta contactarme por WhatsApp 📱');
+    addBotMessageDirect('No fue posible conectar con el servidor. Puede contactar a Andrés por WhatsApp o correo electrónico.');
   } finally {
     isSending = false;
     input.focus();
