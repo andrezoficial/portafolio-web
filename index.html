@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Andrés Suárez Moreno, desarrollador full-stack especializado en JavaScript, React, Node.js y soluciones web escalables.">
+  <meta name="keywords" content="Desarrollador, Full-Stack, JavaScript, React, Node.js, Express, MongoDB, PostgreSQL, Laravel, Portafolio, Andrés Suárez">
+  <meta name="author" content="Andrés Suárez Moreno">
+  <title>Andrés Suárez - Desarrollador Full-Stack</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="canonical" href="https://portafolio-web-pi.vercel.app/">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Background Effects -->
+  <div class="bg-animated"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Intro Overlay -->
+  <div id="intro-overlay" role="status" aria-label="Cargando portafolio">
+    <div class="intro-logo" aria-hidden="true"></div>
+    <div class="intro-text">
+      <h1 class="text-4xl font-bold mb-2">Andrés Suárez Moreno</h1>
+      <p class="text-xl" style="color: var(--gray-light);">Desarrollador Full-Stack</p>
+      <div class="mt-4">
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Contact Button -->
+  <button type="button" class="floating-contact" data-action="toggle-chat" aria-label="Abrir chat de contacto" aria-expanded="false" aria-controls="chat-widget">
+    <span id="chat-icon" aria-hidden="true">💬</span>
+  </button>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget" class="chat-widget" role="dialog" aria-label="Chat de contacto" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">
+        <span>AS</span>
+      </div>
+      <div class="chat-info">
+        <h3>Andrés Suárez</h3>
+        <p>Desarrollador Full-Stack</p>
+      </div>
+      <button class="chat-close" data-action="toggle-chat" aria-label="Cerrar chat">✕</button>
+    </div>
+    
+    <div class="chat-body">
+      <div class="chat-message bot-message">
+        <div class="message-avatar" aria-hidden="true">🤖</div>
+        <div class="message-content">
+          <p>¡Hola! 👋 Soy Andrés. ¿En qué puedo ayudarte hoy?</p>
+          <span class="message-time">Ahora</span>
+        </div>
+      </div>
+      
+      <div class="chat-options">
+        <button class="chat-option" data-chat-option="proyecto">
+          🚀 Tengo un proyecto
+        </button>
+        <button class="chat-option" data-chat-option="colaboracion">
+          🤝 Colaboración
+        </button>
+        <button class="chat-option" data-chat-option="consulta">
+          💡 Consulta técnica
+        </button>
+        <button class="chat-option" data-chat-option="cv">
+          📄 Ver mi CV
+        </button>
+      </div>
+    </div>
+    
+    <div class="chat-footer">
+      <div class="chat-input-container">
+        <label for="chat-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Escribe tu mensaje</label>
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." maxlength="500">
+        <button data-action="send-chat" class="send-btn" aria-label="Enviar mensaje">
+          <span aria-hidden="true">📤</span>
+        </button>
+      </div>
+      <div class="quick-actions">
+        <a href="https://wa.me/573226183938" target="_blank" rel="noopener noreferrer" class="quick-action whatsapp">
+          <span aria-hidden="true">📱</span> WhatsApp
+        </a>
+        <a href="mailto:andres1997rez@gmail.com" class="quick-action email">
+          <span aria-hidden="true">✉️</span> Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <div class="profile-header">
+        <div class="profile-info">
+          <h1>Andrés Suárez Moreno</h1>
+          <p class="subtitle">Full-Stack Developer · JavaScript · React · Node.js · PostgreSQL</p>
+          <div class="contact-info">
+            <a href="https://wa.me/573226183938" target="_blank" rel="noopener noreferrer" class="contact-item">
+              📱 +57 322 618 3938
+            </a>
+            <a href="mailto:andres1997rez@gmail.com" class="contact-item">
+              ✉️ andres1997rez@gmail.com
+            </a>
+            <span class="contact-item">📍 Bogotá, Colombia</span>
+          </div>
+        </div>
+        <div class="social-links" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="Andres-Suarez-CV.pdf" download class="btn btn-primary">
+            📄 Descargar CV
+          </a>
+          <a href="https://github.com/andrezoficial" target="_blank" class="btn btn-outline" rel="noopener noreferrer">
+            🔗 GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/andres1997rez" target="_blank" class="btn btn-outline" rel="noopener noreferrer">
+            💼 LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="showreel section" aria-labelledby="showreel-title">
+    <div class="showreel-copy">
+      <p class="eyebrow">PORTAFOLIO · DESARROLLO DE PRODUCTO</p>
+      <h2 id="showreel-title">Ideas que se convierten en experiencias digitales.</h2>
+      <p>Desarrollo web, productos interactivos y soluciones pensadas para personas y negocios.</p>
+    </div>
+    <div class="showreel-frame">
+      <video class="showreel-video" controls autoplay muted loop playsinline preload="metadata"
+        poster="portada.png" aria-label="Video de presentación del portafolio de Andrés Suárez Moreno">
+        <source src="assets/video-portafolio.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video. Puedes continuar explorando el portafolio.
+      </video>
+    </div>
+  </section>
+
+  <main>
+    <!-- Profile Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon" aria-hidden="true">👨‍💻</div>
+        Perfil Profesional
+      </h2>
+      <p style="font-size: 1.2rem; color: var(--gray-light); margin-bottom: 2.5rem; line-height: 1.8;">
+        Desarrollador Full-Stack que construye aplicaciones web escalables de extremo a extremo. Especializado en JavaScript moderno, React, Node.js/Express, PostgreSQL y MongoDB, con experiencia en sistemas de salud (HCE, FHIR/HL7), e-commerce, microservicios, CI/CD y despliegues en AWS, Heroku y Vercel. También diseño y publico productos propios: juegos y herramientas web.
+      </p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number" data-target="10000" data-suffix="+">0</span>
+          <span class="stat-label">Consultas médicas al mes procesadas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="5" data-suffix="+">0</span>
+          <span class="stat-label">Centros médicos atendidos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="40" data-suffix="%">0</span>
+          <span class="stat-label">Mejora reportada en tiempos de carga</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="3" data-suffix="">0</span>
+          <span class="stat-label">Plataformas e-commerce desarrolladas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon" aria-hidden="true">🛠️</div>
+        Habilidades Técnicas
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>⚛️ Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">HTML5 & CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>⚙️ Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">PHP (Laravel)</span>
+            <span class="skill-tag">Python (Django/Flask)</span>
+            <span class="skill-tag">APIs REST</span>
+            <span class="skill-tag">JWT</span><span class="skill-tag">Microservicios</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🗄️ Bases de Datos</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Mongoose / Sequelize</span>
+            <span class="skill-tag">Optimización de Consultas</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🚀 DevOps & Herramientas</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Jest / Mocha</span><span class="skill-tag">OpenAPI / Swagger</span><span class="skill-tag">Postman</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon" aria-hidden="true">💼</div>
+        Experiencia Laboral
+      </h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="job-title">Desarrollador Full-Stack Freelance</div>
+          <div class="company">🚀 Independiente</div>
+          <div class="period">2024 – Presente</div>
+          <ul class="achievements">
+            <li>Diseñé e implementé <strong>APIs REST</strong> con Node.js y Express para integración de múltiples pasarelas de pago (Stripe, PayPal, Addi, Sistecrédito)</li>
+            <li>Desarrollé plataformas de <strong>e-commerce completas</strong> con autenticación JWT y sistema de roles avanzado</li>
+            <li>Optimicé tiempos de carga en un <strong>40%</strong> mediante implementación de estrategias de caching y CDN</li>
+            <li>Gestioné flujos de trabajo con Git/GitHub y despliegues automatizados en AWS, Heroku y Vercel</li>
+            <li>Lideré proyectos <strong>end-to-end</strong> desde la conceptualización hasta la producción</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="job-title">Desarrollador Full-Stack</div>
+          <div class="company">🏥 Acoustic System SAS</div>
+          <div class="period">2021 – 2023</div>
+          <ul class="achievements">
+            <li>Desarrollé módulos de <strong>Historia Clínica Electrónica</strong> con Laravel y PostgreSQL, usados por más de cinco centros médicos y con más de 10.000 consultas mensuales</li>
+            <li>Integré APIs médicas <strong>FHIR/HL7</strong> para interoperabilidad entre sistemas hospitalarios y laboratorios</li>
+            <li>Construí dashboards administrativos en React, reportes gerenciales y notificaciones automáticas por email y SMS</li>
+            <li>Optimicé consultas PostgreSQL, mejorando el rendimiento del sistema en un 35%</li>
+            <li>Colaboré en equipo ágil usando metodologías <strong>Scrum</strong> con GitHub Projects para gestión de tareas</li>
+          </ul>
+        </div>
+        
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+      <h2>
+        <div class="section-icon" aria-hidden="true">🚀</div>
+        Proyectos Destacados
+      </h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-content">
+            <div class="project-title"><a href="https://genograma-rosy.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Genograma Free</a><span class="text-3xl" aria-hidden="true">🧬</span></div>
+            <p class="project-description">Herramienta web gratuita y sin registro para crear genogramas familiares, editar vínculos y exportar en PNG, SVG o JSON. Incluye generación desde texto o con IA y guía de simbología.</p>
+            <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Web App</span><span class="tech-tag">SVG / PNG / JSON</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-content">
+            <div class="project-title"><a href="https://defensa-castillo.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Defensa del Castillo</a><span class="text-3xl" aria-hidden="true">🏰</span></div>
+            <p class="project-description">Juego de estrategia tower defense para navegador con 15 oleadas, jefes por fases, mejoras y especializaciones de torres, habilidades con enfriamiento, tutorial y guardado de partida.</p>
+            <div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">Three.js</span><span class="tech-tag">3D</span><span class="tech-tag">Responsive</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-content">
+            <div class="project-title"><span class="project-link">El Impostor</span><span class="text-3xl" aria-hidden="true">🎭</span></div>
+            <p class="project-description">Juego social de deducción para 3 a 12 jugadores, disponible como PWA y aplicación en Google Play. Incluye partidas en un dispositivo o en línea, salas por código, enlace o QR, votaciones y reacciones en tiempo real.</p>
+            <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">PWA</span><span class="tech-tag">Multijugador</span><span class="tech-tag">Tiempo real</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-content">
+            <div class="project-title"><a href="https://viorclinic.es/" target="_blank" rel="noopener noreferrer" class="project-link">ViorClinic</a><span class="text-3xl" aria-hidden="true">🏥</span></div>
+            <p class="project-description">Sistema de gestión clínica con pacientes, historial médico, citas, notificaciones, panel médico y reportes. Arquitectura de microservicios con autenticación multirrol.</p>
+            <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span><span class="tech-tag">AWS Amplify</span><span class="tech-tag">JWT</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-content">
+            <div class="project-title"><a href="https://lafersua.com/" target="_blank" rel="noopener noreferrer" class="project-link">Lafersua E-commerce</a><span class="text-3xl" aria-hidden="true">🛒</span></div>
+            <p class="project-description">Tienda SPA con API REST por capas, JWT y refresh tokens, roles granulares, pagos y panel de analítica en tiempo real.</p>
+            <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">PayPal API</span><span class="tech-tag">JWT</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="section">
+      <h2>
+        <div class="section-icon" aria-hidden="true">🎓</div>
+        Educación y Certificaciones
+      </h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <h3>🎓 Educación</h3>
+          <div class="education-item">
+            <div class="education-title">Ingeniería en Sistemas Computacionales — UTEL, Universidad Tecnológica Latinoamericana en Línea</div>
+          </div>
+          <div class="education-item">
+            <div class="education-title">Tecnólogo en Ingeniería Topográfica — Universidad Distrital Francisco José de Caldas</div>
+          </div>
+        </div>
+        
+        <div class="education-card">
+          <h3>🏆 Certificaciones</h3>
+          <div class="certification-item">
+            <span class="certification-icon" aria-hidden="true">🏆</span>
+            <span>Full Stack Open — University of Helsinki (2024)</span>
+          </div>
+          <div class="certification-item">
+            <span class="certification-icon" aria-hidden="true">🏆</span>
+            <span>JavaScript Algorithms and Data Structures — freeCodeCamp (2023)</span>
+          </div>
+          <div class="certification-item">
+            <span class="certification-icon" aria-hidden="true">🏆</span>
+            <span>Advanced SQL for Data Science — Udemy (2023)</span>
+          </div>
+          <div class="certification-item">
+            <span class="certification-icon" aria-hidden="true">🏆</span>
+            <span>Complete React Developer Course — Udemy (2022)</span>
+          </div>
+          <div class="certification-item">
+            <span class="certification-icon" aria-hidden="true">🏆</span>
+            <span>Git y GitHub Masterclass; Laravel 8 Web Development — Udemy (2022)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <h2>
+        <div class="section-icon" aria-hidden="true">📞</div>
+        ¿Listo para colaborar?
+      </h2>
+      <div style="text-align: center; padding: 2.5rem 0;">
+        <p style="font-size: 1.3rem; color: var(--gray-light); margin-bottom: 2.5rem; line-height: 1.6;">
+          Estoy disponible para nuevos desafíos y proyectos emocionantes.<br>
+          <strong style="color: var(--primary-blue); font-size: 1.4rem; background: linear-gradient(135deg, var(--pure-white), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">"Comprometido con soluciones técnicas que generen impacto real."</strong>
+        </p>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+          <a href="https://wa.me/573226183938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            💬 WhatsApp
+          </a>
+          <a href="mailto:andres1997rez@gmail.com" class="btn btn-outline">
+            ✉️ Email
+          </a>
+          <a href="https://calendly.com/andres1997rez" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            📅 Agendar Reunión
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="position: relative; z-index: 2;">
+      <p style="color: var(--gray-light); font-size: 1.1rem;">
+        &copy; <span id="current-year">2026</span> Andrés Suárez Moreno.  
+      </p>
+      <p style="color: var(--gray-light); margin-top: 0.5rem;">Español nativo · Inglés B1 (lectura técnica).</p>
+      <p style="color: var(--gray-light); margin-top: 0.5rem;">
+        Código disponible en 
+        <a href="https://github.com/andrezoficial/portafolio-web" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
