@@ -13,6 +13,7 @@ No añadas otras empresas o puestos que no estén en esta información.
 - El Impostor: juego social de deducción para 3–12 jugadores, PWA y aplicación publicada en Google Play; modo en un dispositivo y online, salas por código/enlace/QR, roles privados, votación con temporizador y reacciones en tiempo real.
 - Genograma Free (genograma-rosy.vercel.app): herramienta gratuita sin registro para crear genogramas, editar vínculos y exportar PNG/SVG/JSON; genera desde texto o con IA.
 - Defensa del Castillo (defensa-castillo.vercel.app): juego tower defense web con 15 oleadas, jefes por fases, mejoras de torres, habilidades, tutorial y guardado.
+- Arcadia — Sala de juegos (arcadia-brown-omega.vercel.app): sala de juegos multijugador para jugar en grupo; la pantalla (TV o computador) muestra el juego y hasta 8 jugadores se unen desde el celular con código de sala o QR, sin instalar nada. Hecho con JavaScript, Three.js y Supabase. Incluye carreras, plataformas, aventura 3D, arena, estrategia, trivia, minijuegos arcade y modo torneo.
 - ViorClinic (viorclinic.es): gestión clínica, pacientes, historial, citas, notificaciones, panel y reportes.
 - Lafersua (lafersua.com): e-commerce con React, Node, PostgreSQL, PayPal, JWT y analítica.
 ## FORMACIÓN
@@ -27,7 +28,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const body = req.body && typeof req.body === 'object' ? req.body : {};
+  let body = req.body;
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); } catch { body = {}; }
+  }
+  body = body && typeof body === 'object' ? body : {};
   const { message, history = [] } = body;
 
   if (typeof message !== 'string' || !message.trim() || message.length > 500) {
@@ -41,7 +46,7 @@ export default async function handler(req, res) {
   }
 
   // Solo aceptar roles y contenido con el formato esperado; limitar historial y tamaño.
-  const historialLimitado = Array.isArray(history)
+  const historialBruto = Array.isArray(history)
     ? history.slice(-10).filter(item =>
         item && ['user', 'model'].includes(item.role) &&
         Array.isArray(item.parts) &&
@@ -52,12 +57,29 @@ export default async function handler(req, res) {
       }))
     : [];
 
+  // Gemini exige que la conversación empiece con 'user' y alterne roles.
+  // Al recortar el historial puede quedar un turno 'model' al inicio: se descarta.
+  const historialLimitado = [];
+  for (const item of historialBruto) {
+    const ultimo = historialLimitado[historialLimitado.length - 1];
+    if (!ultimo && item.role !== 'user') continue;
+    if (ultimo && ultimo.role === item.role) {
+      historialLimitado[historialLimitado.length - 1] = item;
+      continue;
+    }
+    historialLimitado.push(item);
+  }
+  if (historialLimitado.length && historialLimitado[historialLimitado.length - 1].role === 'user') {
+    historialLimitado.pop();
+  }
+
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           system_instruction: {
             parts: [{ text: CONTEXTO_ANDRES }]
@@ -67,8 +89,11 @@ export default async function handler(req, res) {
             { role: 'user', parts: [{ text: message }] }
           ],
           generationConfig: {
-            maxOutputTokens: 300,
-            temperature: 0.7
+            maxOutputTokens: 800,
+            temperature: 0.7,
+            // gemini-2.5-flash "piensa" por defecto y esos tokens consumen maxOutputTokens,
+            // dejando la respuesta vacía o cortada. Se desactiva para un chat simple.
+            thinkingConfig: { thinkingBudget: 0 }
           }
         })
       }
@@ -81,7 +106,8 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: 'El asistente no pudo responder en este momento. Intenta por WhatsApp o correo.' });
     }
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
+    const parts = data?.candidates?.[0]?.content?.parts;
+    const reply = (Array.isArray(parts) ? parts.map(part => part?.text || '').join('').trim() : '')
       || 'Lo siento, no pude procesar tu mensaje. Intenta contactarme por WhatsApp.';
 
     return res.status(200).json({ reply });

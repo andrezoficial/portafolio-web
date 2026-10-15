@@ -5,6 +5,7 @@ import { escapeHTML } from "./utilities.js";
     let chatMessages = [];
     let conversationHistory = [];
     let isTyping = false;
+    let isSending = false;
 
     export function toggleChatWidget() {
       chatWidget = document.getElementById('chat-widget');
@@ -144,21 +145,26 @@ import { escapeHTML } from "./utilities.js";
   if (!input) return;
   const message = input.value.trim();
   
-  if (!message) return;
+  if (!message || isSending) return;
+  isSending = true;
   
   addUserMessage(escapeHTML(message));
   input.value = '';
   
+  // Quitar cualquier indicador pendiente de las opciones rápidas y mostrar uno nuevo.
+  hideTypingIndicator();
   showTypingIndicator();
   
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, history: conversationHistory })
+      body: JSON.stringify({ message, history: conversationHistory.slice(-10) }),
+      signal: AbortSignal.timeout(25000)
     });
     
-    const data = await response.json();
+    let data = {};
+    try { data = await response.json(); } catch { data = {}; }
     hideTypingIndicator();
     
     if (response.ok && data.reply) {
@@ -166,11 +172,14 @@ import { escapeHTML } from "./utilities.js";
       conversationHistory.push({ role: 'user', parts: [{ text: message }] });
       conversationHistory.push({ role: 'model', parts: [{ text: data.reply }] });
     } else {
-      addBotMessageDirect('Ocurrió un error. Intenta contactarme por WhatsApp 📱');
+      addBotMessageDirect(data.error || 'Ocurrió un error. Intenta contactarme por WhatsApp 📱');
     }
   } catch (error) {
     hideTypingIndicator();
     addBotMessageDirect('No pude conectar con el servidor. Intenta contactarme por WhatsApp 📱');
+  } finally {
+    isSending = false;
+    input.focus();
   }
 }
 
@@ -190,37 +199,6 @@ function addBotMessageDirect(message) {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-    function getBotResponse(message) {
-      const lowerMessage = message.toLowerCase();
-      
-      if (lowerMessage.includes('hola') || lowerMessage.includes('hey') || lowerMessage.includes('buenas')) {
-        return '¡Hola! 👋 ¿Cómo estás? ¿En qué puedo ayudarte hoy?';
-      }
-      
-      if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('cotizar')) {
-        return '💰 Los precios varían según la complejidad del proyecto. ¿Te parece si conversamos por WhatsApp para darte una cotización personalizada?';
-      }
-      
-      if (lowerMessage.includes('tiempo') || lowerMessage.includes('cuánto') || lowerMessage.includes('duración')) {
-        return '⏰ El tiempo depende del alcance del proyecto. Proyectos simples: 1-2 semanas, complejos: 1-3 meses. ¿Qué tienes en mente?';
-      }
-      
-      if (lowerMessage.includes('react') || lowerMessage.includes('javascript') || lowerMessage.includes('node')) {
-        return '⚛️ ¡Perfecto! Esas son mis tecnologías favoritas. Tengo amplia experiencia desarrollando con React y Node.js. ¿Qué tipo de aplicación necesitas?';
-      }
-      
-      if (lowerMessage.includes('disponible') || lowerMessage.includes('disponibilidad')) {
-        return '📅 Actualmente tengo disponibilidad para nuevos proyectos. ¿Te parece si agendamos una videollamada para conversar?';
-      }
-      
-      if (lowerMessage.includes('gracias') || lowerMessage.includes('thanks')) {
-        return '¡De nada! 😊 Cualquier otra pregunta que tengas, no dudes en escribirme.';
-      }
-      
-      // Default response
-      return '¡Interesante! 🤔 Me encantaría conocer más detalles. ¿Te parece si conversamos por WhatsApp o email para una comunicación más fluida?';
-    }
-
     function getCurrentTime() {
       const now = new Date();
       return now.toLocaleTimeString('es-ES', { 
@@ -235,7 +213,7 @@ function addBotMessageDirect(message) {
       if (!chatInput) return;
       
       chatInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && !e.isComposing) {
           e.preventDefault();
           sendMessage();
         }
