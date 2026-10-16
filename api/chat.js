@@ -14,6 +14,7 @@ No añadas otras empresas o puestos que no estén en esta información.
 - Genograma Free (genograma-rosy.vercel.app): herramienta gratuita sin registro para crear genogramas, editar vínculos y exportar PNG/SVG/JSON; genera desde texto o con IA.
 - Defensa del Castillo (defensa-castillo.vercel.app): juego tower defense web con 15 oleadas, jefes por fases, mejoras de torres, habilidades, tutorial y guardado.
 - Arcadia — Sala de juegos (arcadia-brown-omega.vercel.app): sala de juegos multijugador para jugar en grupo; la pantalla (TV o computador) muestra el juego y hasta 8 jugadores se unen desde el celular con código de sala o QR, sin instalar nada. Hecho con JavaScript, Three.js y Supabase. Incluye carreras, plataformas, aventura 3D, arena, estrategia, trivia, minijuegos arcade y modo torneo.
+- Radio Colmena (radio-colmena.vercel.app): emisora en línea con transmisión musical en vivo las 24 horas, con Firebase, chat en vivo, petición de canciones, programación, locutores y concursos.
 - ViorClinic (viorclinic.es): gestión clínica, pacientes, historial, citas, notificaciones, panel y reportes.
 - Lafersua (lafersua.com): e-commerce con React, Node, PostgreSQL, PayPal, JWT y analítica.
 ## FORMACIÓN

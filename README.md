@@ -18,9 +18,8 @@ portafolio-web-main/
 │       └── utilities.js   # Utilidades visuales reutilizables
 ├── api/chat.js            # Endpoint del chat (lado servidor)
 ├── favicon.png
-├── fondo.jpg
-├── portada.png
-└── cv-andres-suarezz.pdf
+├── poster-video.webp
+└── Andres-Suarez-CV.pdf
 ```
 
 ## Arquitectura del cliente
@@ -67,3 +66,12 @@ Se validaron la sintaxis de los archivos JavaScript, la correspondencia de impor
 - Correcciones defensivas en inicialización, elementos opcionales, chat, animaciones y contadores.
 - El endpoint `/api/chat` requiere `GEMINI_API_KEY` configurada en el despliegue. No incluyas esa clave en el frontend ni en el repositorio.
 - El video se sirve desde `assets/video-portafolio.mp4`; si se desea optimizar aún más la carga móvil, conviene generar una versión MP4 comprimida y conservar una imagen de póster.
+
+
+## Optimización (octubre de 2026)
+
+- Eliminado el CDN de Tailwind 2.2 (~300 KB y bloqueante); se reemplazó por una base mínima y las ~14 utilidades usadas, dentro de `styles.css`.
+- Video recomprimido (4,2 → 1,4 MB), con `preload="none"` y reproducción solo cuando entra en pantalla; póster en WebP.
+- Favicon reducido a 192 px; retirados archivos sin referencia (`portada.png`, `fondo.jpg`, PDF duplicado).
+- Partículas: sin `shadowBlur`, menos partículas en móvil, pausa con la pestaña oculta.
+- Listeners por elemento (p, li, tarjetas, encabezados) y estilos inyectados por JS pasaron a CSS; eliminado código muerto y `console.log`.

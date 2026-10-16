@@ -7,13 +7,28 @@
   <meta name="keywords" content="Desarrollador, Full-Stack, JavaScript, React, Node.js, Express, MongoDB, PostgreSQL, Laravel, Portafolio, Andrés Suárez">
   <meta name="author" content="Andrés Suárez Moreno">
   <title>Andrés Suárez Moreno | Desarrollador Full-Stack Semi Senior</title>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="192x192">
   <link rel="canonical" href="https://portafolio-web-pi.vercel.app/">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Andrés Suárez Moreno">
+  <meta property="og:title" content="Andrés Suárez Moreno | Desarrollador Full-Stack Semi Senior">
+  <meta property="og:description" content="React, Node.js, PostgreSQL y soluciones web escalables. Proyectos, experiencia y contacto.">
+  <meta property="og:url" content="https://portafolio-web-pi.vercel.app/">
+  <meta property="og:image" content="https://portafolio-web-pi.vercel.app/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Andrés Suárez Moreno","jobTitle":"Desarrollador Full-Stack Semi Senior","url":"https://portafolio-web-pi.vercel.app/","email":"mailto:andres1997rez@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"},"sameAs":["https://github.com/andrezoficial","https://www.linkedin.com/in/andres1997rez"],"knowsAbout":["JavaScript","React","Node.js","PostgreSQL","Laravel","AWS"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <!-- Background Effects -->
   <div class="bg-animated"></div>
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
@@ -27,7 +42,7 @@
   <div id="intro-overlay" role="status" aria-label="Cargando portafolio">
     <div class="intro-logo" aria-hidden="true"></div>
     <div class="intro-text">
-      <h1 class="text-4xl font-bold mb-2">Andrés Suárez Moreno</h1>
+      <p class="text-4xl font-bold mb-2">Andrés Suárez Moreno</p>
       <p class="text-xl" style="color: var(--gray-light);">Desarrollador Full-Stack Semi Senior</p>
       <div class="mt-4">
         <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded animate-pulse"></div>
@@ -53,7 +68,7 @@
       <button class="chat-close" data-action="toggle-chat" aria-label="Cerrar chat">✕</button>
     </div>
     
-    <div class="chat-body">
+    <div class="chat-body" role="log" aria-live="polite" aria-relevant="additions">
       <div class="chat-message bot-message">
         <div class="message-avatar" aria-hidden="true">🤖</div>
         <div class="message-content">
@@ -97,7 +112,19 @@
     </div>
   </div>
 
-  <header>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#perfil">Perfil</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header id="inicio">
     <div class="header-content">
       <div class="profile-header">
         <div class="profile-info">
@@ -135,17 +162,17 @@
       <p>Desarrollo de aplicaciones web, productos interactivos y plataformas a la medida para empresas y usuarios.</p>
     </div>
     <div class="showreel-frame">
-      <video class="showreel-video" controls autoplay muted loop playsinline preload="metadata"
-        poster="poster-video.jpg" aria-label="Video de presentación del portafolio de Andrés Suárez Moreno">
+      <video class="showreel-video" controls muted loop playsinline preload="none" width="1280" height="720"
+        poster="poster-video.webp" aria-label="Video de presentación del portafolio de Andrés Suárez Moreno">
         <source src="assets/video-portafolio.mp4" type="video/mp4">
         Su navegador no puede reproducir este video. Puede continuar explorando el portafolio.
       </video>
     </div>
   </section>
 
-  <main>
+  <main id="contenido" tabindex="-1">
     <!-- Profile Section -->
-    <section class="section">
+    <section class="section" id="perfil">
       <h2>
         <div class="section-icon" aria-hidden="true">👨‍💻</div>
         Perfil Profesional
@@ -156,7 +183,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section">
+    <section class="section" id="habilidades">
       <h2>
         <div class="section-icon" aria-hidden="true">🛠️</div>
         Habilidades Técnicas
@@ -209,7 +236,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section">
+    <section class="section" id="experiencia">
       <h2>
         <div class="section-icon" aria-hidden="true">💼</div>
         Experiencia Laboral
@@ -246,34 +273,46 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="section">
+    <section class="section" id="proyectos">
       <h2>
         <div class="section-icon" aria-hidden="true">🚀</div>
         Proyectos Destacados
       </h2>
       <div class="projects-grid">
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/genograma.webp" alt="Captura de Genograma Free: editor de genogramas con leyenda clínica" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
-            <div class="project-title"><a href="https://genograma-rosy.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Genograma Free</a><span class="text-3xl" aria-hidden="true">🧬</span></div>
+            <div class="project-title"><a href="https://genograma-rosy.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Genograma Free (se abre en una pestaña nueva)">Genograma Free</a><span class="text-3xl" aria-hidden="true">🧬</span></div>
             <p class="project-description">Herramienta web gratuita y sin registro para elaborar genogramas familiares. Permite generar el diagrama desde texto o con IA, editar vínculos y exportarlo en PNG, SVG o JSON. Incluye una guía de simbología.</p>
             <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Web App</span><span class="tech-tag">SVG / PNG / JSON</span></div>
           </div>
         </article>
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/defensa-castillo.webp" alt="Captura de Defensa del Castillo: mapa 3D con torres y oleadas" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
-            <div class="project-title"><a href="https://defensa-castillo.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Defensa del Castillo</a><span class="text-3xl" aria-hidden="true">🏰</span></div>
+            <div class="project-title"><a href="https://defensa-castillo.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Defensa del Castillo (se abre en una pestaña nueva)">Defensa del Castillo</a><span class="text-3xl" aria-hidden="true">🏰</span></div>
             <p class="project-description">Juego de estrategia tipo tower defense para navegador, con 15 oleadas, jefes por fases, mejoras y especializaciones de torres, habilidades con tiempo de recarga, tutorial interactivo y guardado de partida.</p>
             <div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">Three.js</span><span class="tech-tag">3D</span><span class="tech-tag">Responsive</span></div>
           </div>
         </article>
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/arcadia.webp" alt="Captura de Arcadia: pantalla de inicio de la sala de juegos" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
-            <div class="project-title"><a href="https://arcadia-brown-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Arcadia — Sala de juegos</a><span class="text-3xl" aria-hidden="true">🕹️</span></div>
+            <div class="project-title"><a href="https://arcadia-brown-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Arcadia — Sala de juegos (se abre en una pestaña nueva)">Arcadia — Sala de juegos</a><span class="text-3xl" aria-hidden="true">🕹️</span></div>
             <p class="project-description">Sala de juegos multijugador para jugar en grupo: el juego se muestra en una pantalla compartida y hasta 8 jugadores se conectan desde su celular mediante código o QR, sin instalar aplicaciones. Incluye juegos de carreras, plataformas, aventura 3D, arena, estrategia y trivia, además de minijuegos arcade y modo torneo.</p>
             <div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">Three.js</span><span class="tech-tag">Supabase</span><span class="tech-tag">Multijugador</span><span class="tech-tag">Tiempo real</span><span class="tech-tag">2D / 3D</span></div>
           </div>
         </article>
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/radio-colmena.webp" alt="Captura de Radio Colmena: reproductor en vivo y chat de la comunidad" width="800" height="348" loading="lazy" decoding="async"></div>
+          <div class="project-content">
+            <div class="project-title"><a href="https://radio-colmena.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Radio Colmena (se abre en una pestaña nueva)">Radio Colmena</a><span class="text-3xl" aria-hidden="true">📻</span></div>
+            <p class="project-description">Emisora en línea con transmisión musical en vivo las 24 horas, bajo el lema «La música que te conecta». Permite escuchar la señal en directo, con servidor de respaldo, chatear con la comunidad en vivo, pedir canciones, consultar la programación, conocer a los locutores y participar en concursos.</p>
+            <div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">Firebase</span><span class="tech-tag">Streaming en vivo</span><span class="tech-tag">Chat en tiempo real</span><span class="tech-tag">Responsive</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-media"><img src="assets/img/el-impostor.webp" alt="Captura de El Impostor: menú de selección de modo de juego" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
             <div class="project-title"><span class="project-link">El Impostor</span><span class="text-3xl" aria-hidden="true">🎭</span></div>
             <p class="project-description">Juego social de deducción para 3 a 12 jugadores, disponible como PWA y como aplicación en Google Play. Ofrece partidas en un solo dispositivo o en línea, salas por código, enlace o QR, roles privados, votaciones con temporizador y reacciones en tiempo real.</p>
@@ -281,15 +320,17 @@
           </div>
         </article>
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/viorclinic.webp" alt="Captura de ViorClinic: página principal de gestión de citas médicas" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
-            <div class="project-title"><a href="https://viorclinic.es/" target="_blank" rel="noopener noreferrer" class="project-link">ViorClinic</a><span class="text-3xl" aria-hidden="true">🏥</span></div>
+            <div class="project-title"><a href="https://viorclinic.es/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="ViorClinic (se abre en una pestaña nueva)">ViorClinic</a><span class="text-3xl" aria-hidden="true">🏥</span></div>
             <p class="project-description">Sistema de gestión clínica que integra pacientes, historial médico, citas, notificaciones, panel médico y reportes. Cuenta con arquitectura de microservicios y autenticación multirrol.</p>
             <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span><span class="tech-tag">AWS Amplify</span><span class="tech-tag">JWT</span></div>
           </div>
         </article>
         <article class="project-card">
+          <div class="project-media"><img src="assets/img/lafersua.webp" alt="Captura de Lafersua: portada de la tienda en línea" width="800" height="348" loading="lazy" decoding="async"></div>
           <div class="project-content">
-            <div class="project-title"><a href="https://lafersua.com/" target="_blank" rel="noopener noreferrer" class="project-link">Lafersua E-commerce</a><span class="text-3xl" aria-hidden="true">🛒</span></div>
+            <div class="project-title"><a href="https://lafersua.com/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Lafersua E-commerce (se abre en una pestaña nueva)">Lafersua E-commerce</a><span class="text-3xl" aria-hidden="true">🛒</span></div>
             <p class="project-description">Tienda en línea (SPA) con API REST por capas, autenticación JWT con refresh tokens, roles granulares, pasarela de pagos y panel de analítica en tiempo real.</p>
             <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">PayPal API</span><span class="tech-tag">JWT</span></div>
           </div>
@@ -298,7 +339,7 @@
     </section>
 
     <!-- Education & Certifications -->
-    <section class="section">
+    <section class="section" id="educacion">
       <h2>
         <div class="section-icon" aria-hidden="true">🎓</div>
         Educación y Certificaciones
@@ -362,6 +403,24 @@
             📅 Agendar reunión
           </a>
         </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <h3>Escríbame un mensaje</h3>
+          <div class="form-row">
+            <label for="cf-nombre">Nombre</label>
+            <input id="cf-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+          </div>
+          <div class="form-row">
+            <label for="cf-mensaje">Mensaje</label>
+            <textarea id="cf-mensaje" name="mensaje" rows="4" required maxlength="800" placeholder="Cuénteme brevemente su proyecto u oportunidad"></textarea>
+          </div>
+          <p class="form-error" id="cf-error" role="alert" hidden>Por favor complete su nombre y mensaje.</p>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-channel="whatsapp">Enviar por WhatsApp</button>
+            <button type="submit" class="btn btn-outline" data-channel="email">Enviar por correo</button>
+          </div>
+          <p class="form-note">Se abrirá su aplicación de WhatsApp o correo con el mensaje listo para enviar.</p>
+        </form>
+
       </div>
     </section>
   </main>

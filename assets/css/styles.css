@@ -1,3 +1,30 @@
+/* ---------- Base mínima (sustituye al CDN de Tailwind 2.2, que pesaba ~300 KB) ---------- */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
+html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4}
+blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+ol,ul{list-style:none;margin:0;padding:0}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+button,input{font-family:inherit;font-size:100%;line-height:1.15;margin:0;color:inherit}
+button{background-color:transparent;background-image:none;cursor:pointer;text-transform:none;-webkit-appearance:button}
+input::placeholder{opacity:1;color:#9ca3af}
+img,svg,video,canvas{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+[hidden]{display:none}
+/* Utilidades usadas por index.html */
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-4xl{font-size:2.25rem;line-height:2.5rem}
+.font-bold{font-weight:700}
+.mb-2{margin-bottom:.5rem}.mt-4{margin-top:1rem}.mx-auto{margin-left:auto;margin-right:auto}
+.w-20{width:5rem}.h-1{height:.25rem}.rounded{border-radius:.25rem}
+.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-from),var(--tw-to))}
+.from-blue-500{--tw-from:#3b82f6}.to-blue-400{--tw-to:#60a5fa}
+.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes pulse{50%{opacity:.5}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+
     :root {
       --primary-blue: #2563eb;
       --light-blue: #3b82f6;
@@ -8,7 +35,7 @@
       --soft-black: #1a1a1a;
       --gray-dark: #2a2a2a;
       --gray-medium: #404040;
-      --gray-light: #6b7280;
+      --gray-light: #9ca3af;
       --pure-white: #ffffff;
       --off-white: #f8fafc;
       --blue-white: #f0f7ff;
@@ -72,7 +99,7 @@
       z-index: 9999;
       flex-direction: column;
       opacity: 1;
-      transition: opacity 1s ease;
+      transition: opacity .45s ease;
     }
 
     .intro-logo {
@@ -131,7 +158,7 @@
     .intro-text {
       text-align: center;
       opacity: 0;
-      animation: fadeInUp 1s ease 1s forwards;
+      animation: fadeInUp .5s ease .15s forwards;
     }
 
     .intro-text h1 {
@@ -1515,3 +1542,73 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+
+/* ---------- Estilos movidos desde effects.js (antes se inyectaban con JS) ---------- */
+@keyframes ripple { to { transform: scale(2); opacity: 0; } }
+@keyframes bounceIn { 0% { transform: scale(.3); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+.skill-category:hover { box-shadow: 0 20px 40px var(--glow-blue); }
+.timeline-item:hover .job-title { color: var(--primary-blue); text-shadow: 0 0 10px var(--glow-blue); }
+.contact-item { position: relative; z-index: 1; }
+.floating-contact:hover { animation-play-state: paused; }
+::-webkit-scrollbar-thumb { box-shadow: inset 0 0 6px var(--glow-blue); }
+.section { perspective: 1000px; }
+.section.visible { transform: translateY(0) rotateX(0deg); }
+.achievements li:hover { color: var(--pure-white); padding-left: 2.5rem; transition: all .3s ease; }
+.achievements li:hover::before { content: '🚀'; animation: bounceIn .5s ease; color: var(--primary-blue); }
+.timeline-item:hover::before { background: linear-gradient(135deg, var(--light-blue), var(--primary-blue)); transform: translateX(-5px) scale(1.2); box-shadow: 0 0 0 8px rgba(37,99,235,.3); }
+.education-card:hover { transform: translateY(-5px); border-color: var(--primary-blue); box-shadow: 0 25px 50px var(--glow-blue); }
+.certification-item:hover .certification-icon { transform: scale(1.2) rotate(10deg); color: var(--light-blue); }
+.btn:focus, .contact-item:focus { outline: 2px solid var(--primary-blue); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(37,99,235,.3); }
+@media (max-width: 768px) {
+  .floating-contact { animation-duration: 2s; }
+  .skill-tag:hover { transform: translateY(-1px) scale(1.02); }
+  .project-card:hover { transform: translateY(-5px) scale(1.01); }
+  .contact-info { flex-direction: column; }
+  .social-links { flex-direction: column; align-items: center; }
+}
+
+/* Antes eran listeners JS en cada <p>, <li>, tarjeta y encabezado; en CSS no cuestan memoria ni CPU */
+p, li { transition: color .3s ease; }
+p:hover, li:hover { color: var(--pure-white) !important; }
+.projects-grid:hover .project-card:not(:hover) { opacity: .7; transform: scale(.95); }
+h1:hover, h2:hover, h3:hover { background-size: 200% 200%; animation: gradientShift 2s ease infinite; }
+.timeline-item { opacity: 0; transform: translateX(-30px); transition: all .6s ease; }
+.timeline-item.is-in { opacity: 1; transform: translateX(0); }
+@media (scripting: none) { .timeline-item { opacity: 1; transform: none; } }
+
+
+/* ---------- Mejoras de accesibilidad ---------- */
+.skip-link{position:fixed;left:1rem;top:-4rem;z-index:10000;background:var(--primary-blue);color:#fff;padding:.7rem 1.1rem;border-radius:.5rem;font-weight:600;transition:top .2s}
+.skip-link:focus{top:1rem}
+main:focus{outline:none}
+:focus-visible{outline:2px solid var(--blue-glow);outline-offset:3px}
+.project-link{text-decoration:underline;text-underline-offset:3px}
+
+
+/* ---------- Navegación fija ---------- */
+html{scroll-padding-top:4.5rem}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border-gray);transform:translateY(-100%);transition:transform .3s ease}
+.site-nav.is-visible{transform:translateY(0)}
+.site-nav ul{display:flex;gap:.25rem;max-width:1200px;margin:0 auto;padding:.5rem 1rem;overflow-x:auto;scrollbar-width:none;justify-content:center}
+.site-nav ul::-webkit-scrollbar{display:none}
+.site-nav a{display:block;white-space:nowrap;padding:.45rem .9rem;border-radius:2rem;font-size:.9rem;font-weight:500;color:var(--gray-light);transition:color .2s,background .2s}
+.site-nav a:hover{color:var(--pure-white)}
+.site-nav a.is-active{color:var(--pure-white);background:var(--primary-blue)}
+@media (max-width:760px){.site-nav ul{justify-content:flex-start}}
+
+/* ---------- Formulario de contacto ---------- */
+.contact-form{max-width:640px;margin:3rem auto 0;text-align:left;padding:2rem;border:1px solid var(--border-gray);border-radius:1rem;background:rgba(255,255,255,.02)}
+.contact-form h3{font-size:1.4rem;font-weight:700;margin-bottom:1.25rem}
+.form-row{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-row label{font-size:.9rem;font-weight:600;color:var(--gray-light)}
+.form-row input,.form-row textarea{width:100%;padding:.8rem 1rem;background:var(--rich-black);color:var(--pure-white);border:1px solid var(--border-gray);border-radius:.6rem;font:inherit;resize:vertical}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:var(--primary-blue);box-shadow:0 0 0 3px var(--glow-blue)}
+.form-error{color:#fca5a5;margin-bottom:1rem;font-size:.95rem}
+.form-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.form-note{margin-top:1rem;font-size:.85rem;color:var(--gray-light)}
+
+/* ---------- Capturas de proyectos ---------- */
+.project-media{position:relative;z-index:2;aspect-ratio:800/348;overflow:hidden;border-bottom:1px solid var(--border-gray);background:var(--rich-black)}
+.project-media img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s ease}
+.project-card:hover .project-media img{transform:scale(1.05)}
